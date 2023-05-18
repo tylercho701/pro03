@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+.content { width:1140px; padding-top:30px; margin:30px auto; border-top:1px solid #333; min-height:700px; }
+
+.agree_fr { width: 900px; white-space:pre-wrap; padding: 24px; height:600px; overflow-y:auto; margin-left: 120px;}
+
+.thumb_box img { width:252px; height:300px; }  
