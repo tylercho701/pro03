@@ -37,4 +37,48 @@ insert into notice values ('000014', '테스트 더미글 14', '테스트 더미
 insert into notice values ('000015', '테스트 더미글 15', '테스트 더미글 15번 입니다.', default, 'admin', '15.jpg', default);
 
 
--- Member 계정 더미
+-- Regi 계정 더미
+select * from registration;
+insert into registration values ('000001', 'tyler', '1', '2023-06-03', '여행완료');
+insert into registration values ('000002', 'tyler', '2', '2023-06-06', '여행완료');
+insert into registration values ('000003', 'tyler', '3', '2023-06-13', '여행완료');
+insert into registration values ('000004', 'faker', '1', '2023-06-16', '여행완료');
+insert into registration values ('000005', 'faker', '2', '2023-06-30', '여행완료');
+insert into registration values ('000006', 'faker', '3', '2023-07-03', '여행완료');
+insert into registration values ('000007', 'narae', '1', '2023-08-03', '여행완료');
+insert into registration values ('000008', 'narae', '2', '2023-09-03', '여행완료');
+insert into registration values ('000009', 'narae', '3', '2023-10-03', '여행완료');
+insert into registration values ('000010', 'seonjeong', '1', '2023-06-23', '여행완료');
+insert into registration values ('000011', 'seonjeong', '2', '2023-06-09', '여행완료');
+insert into registration values ('000012', 'seonjeong', '3', '2023-06-28', '여행완료');
+insert into registration values ('000013', 'binbin', '1', '2023-06-03', '여행완료');
+insert into registration values ('000014', 'binbin', '1', '2023-06-03', '여행완료');
+insert into registration values ('000015', 'binbin', '1', '2023-06-03', '여행완료');
+
+-- review 더미글
+select * from review;
+insert into review values ('000001', '리뷰 테스트 1', '리뷰 테스트 글 1번 입니다.', default, 'tyler', '1', 5, '/1.jpg', default);
+insert into review values ('000002', '리뷰 테스트 2', '리뷰 테스트 글 2번 입니다.', default, 'tyler', '2', 4, '/2.jpg', default);
+insert into review values ('000003', '리뷰 테스트 3', '리뷰 테스트 글 3번 입니다.', default, 'tyler', '3', 5, '/3.jpg', default);
+insert into review values ('000004', '리뷰 테스트 4', '리뷰 테스트 글 4번 입니다.', default, 'tyler', '1', 5, '/4.jpg', default);
+insert into review values ('000005', '리뷰 테스트 5', '리뷰 테스트 글 5번 입니다.', default, 'tyler', '2', 3, '/5.jpg', default);
+insert into review values ('000006', '리뷰 테스트 6', '리뷰 테스트 글 6번 입니다.', default, 'tyler', '3', 5, '/6.jpg', default);
+insert into review values ('000007', '리뷰 테스트 7', '리뷰 테스트 글 7번 입니다.', default, 'tyler', '1', 5, '/7.jpg', default);
+insert into review values ('000008', '리뷰 테스트 8', '리뷰 테스트 글 8번 입니다.', default, 'tyler', '2', 4, '/8.jpg', default);
+insert into review values ('000009', '리뷰 테스트 9', '리뷰 테스트 글 9번 입니다.', default, 'tyler', '3', 5, '/9.jpg', default);
+insert into review values ('000010', '리뷰 테스트 10', '리뷰 테스트 글 10번 입니다.', default, 'tyler', '1', 5, '/10.jpg', default);
+insert into review values ('000011', '리뷰 테스트 11', '리뷰 테스트 글 11번 입니다.', default, 'tyler', '2', 2, '/11.jpg', default);
+insert into review values ('000012', '리뷰 테스트 12', '리뷰 테스트 글 12번 입니다.', default, 'tyler', '3', 5, '/12.jpg', default);
+insert into review values ('000013', '리뷰 테스트 13', '리뷰 테스트 글 13번 입니다.', default, 'tyler', '1', 1, '/13.jpg', default);
+insert into review values ('000014', '리뷰 테스트 14', '리뷰 테스트 글 14번 입니다.', default, 'tyler', '2', 5, '/14.jpg', default);
+insert into review values ('000015', '리뷰 테스트 15', '리뷰 테스트 글 15번 입니다.', default, 'tyler', '3', 5, '/15.jpg', default);
+
+
+select * from member;
+select * from review;
+select * from registration;
+select * from qna;
+select * from poke;
+select * from notice;
+select * from category;
+select * from visit;
