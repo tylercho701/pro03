@@ -9,6 +9,7 @@ public class Review {
 	private Date reviewedAt;
 	private String reviewedBy;
 	private String visitId;
+	private String regId;
 	private int point;
 	private String img;
 	private int likeCnt;
@@ -48,6 +49,12 @@ public class Review {
 	}
 	public void setVisitId(String visitId) {
 		this.visitId = visitId;
+	}
+	public final String getRegId() {
+		return regId;
+	}
+	public final void setRegId(String regId) {
+		this.regId = regId;
 	}
 	public int getPoint() {
 		return point;

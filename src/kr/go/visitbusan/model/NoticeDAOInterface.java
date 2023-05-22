@@ -1,9 +1,11 @@
 package kr.go.visitbusan.model;
 
+import java.util.ArrayList;
+
 public interface NoticeDAOInterface {
-	public ArrayList<NOTICEDTO> getNoticeList();
-	public NoticeDTO getNotice (int no);
-	public int addNotice(NoticeDTO dto);
+	public ArrayList<NOTICEDTOF> getNoticeList();
+	public NoticeDTOF getNotice (int no);
+	public int addNotice(NoticeDTOF dto);
 	public int delNotice(int no);
-	public int modiftyNotice(NoticeDTO dto);
+	public int modiftyNotice(NoticeDTOF dto);
 }

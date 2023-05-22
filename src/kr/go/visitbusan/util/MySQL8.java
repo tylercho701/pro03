@@ -48,7 +48,7 @@ public class MySQL8 {
 	public final static String REVIEW_LIST_BY_VISITID = "select * from review where visitid = ?";
 	public final static String REVIEW_LIST_BY_MEMBERID = "select * from review where reviewedBy = ?";
 	public final static String REVIEW_UPDATE_LIKECNT = "update review set likecnt = likecnt + 1 where reviewId = ?";
-	public final static String REVIEW_INSERT = "insert into review(reviewId, reviewTitle, reviewContent, reviewedBy, visitId, point, img) values (?, ?, ?, ?, ?, ?, ?)";
+	public final static String REVIEW_INSERT = "insert into review(reviewId, reviewTitle, reviewContent, reviewedBy, visitId, point, img) values (?, ?, ?, ?, ?, ?, ?, ?)";
 	public final static String REVIEW_REVIEWID_GENERATOR = "select reviewId from (select reviewId from review order by reviewId desc) where rownum = 1";
 	public final static String REVIEW_UPDATE_CHANGED_IMG = "update review set reviewTitle = ?, reviewContent = ?, writtenAt = default, img = ? where reviewId = ?";
 	public final static String REVIEW_UPDATE_NOT_CHANGED_IMG = "update review set reviewTitle = ?, reviewContent = ?, writtenAt = default, where reviewId = ?";

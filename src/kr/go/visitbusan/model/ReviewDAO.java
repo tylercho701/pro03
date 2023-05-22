@@ -30,7 +30,8 @@ public class ReviewDAO {
 				rev.setReviewedAt(rs.getDate("reviewedAt"));
 				rev.setReviewedBy(rs.getString("reviewedBy"));
 				rev.setVisitId(rs.getString("VisitId"));
-				rev.setPoint(rs.getInt("pointt"));
+				rev.setRegId(rs.getString("RegId"));
+				rev.setPoint(rs.getInt("point"));
 				rev.setImg(rs.getString("img"));
 				rev.setLikeCnt(rs.getInt("likeCnt"));
 				reviewList.add(rev);
@@ -67,19 +68,20 @@ public class ReviewDAO {
 	}
 	
 	// Insert Review
-	public int noticeInsert(Review rev){
+	public int reviewInsert(Review rev){
 		int cnt = 0;
 		String ReviewId = reviewIdGenerator();			//noticeId 생성 (가장 최근 noticeId + 1)
 		try {
 			conn = MySQL8.getConnection();
-			pstmt = conn.prepareStatement(MySQL8.NOTICE_INSERT);
+			pstmt = conn.prepareStatement(MySQL8.REVIEW_INSERT);
 			pstmt.setString(1, ReviewId);
 			pstmt.setString(2, rev.getReviewTitle());
 			pstmt.setString(3, rev.getReviewContent());
 			pstmt.setString(4, rev.getReviewedBy());
 			pstmt.setString(5, rev.getVisitId());
-			pstmt.setInt(6, rev.getPoint());
-			pstmt.setString(7, rev.getImg());
+			pstmt.setString(6, rev.getRegId());
+			pstmt.setInt(7, rev.getPoint());
+			pstmt.setString(8, rev.getImg());
 			cnt = pstmt.executeUpdate();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -132,6 +134,7 @@ public class ReviewDAO {
 				rev.setReviewedAt(rs.getDate("reviewedAt"));
 				rev.setReviewedBy(rs.getString("reviewedBy"));
 				rev.setVisitId(rs.getString("VisitId"));
+				rev.setRegId(rs.getString("RegId"));
 				rev.setPoint(rs.getInt("pointt"));
 				rev.setImg(rs.getString("img"));
 				rev.setLikeCnt(rs.getInt("likeCnt"));
