@@ -19,7 +19,7 @@ public class DTOTest {
 	public ArrayList<Sample1> db(){
 		try {
 			conn = MySQL8.getConnection();
-			pstmt = conn.prepareStatement(MySQL8.SAMPLE_SELECT_ALL);
+			pstmt = conn.prepareStatement(MySQL8.SELECT_SAMPLE_ALL);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				Sample1 sam = new Sample1();

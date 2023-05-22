@@ -6,7 +6,7 @@
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@ page import="java.util.*, java.lang.*" %>
 <%@ page import="java.text.*, java.net.InetAddress" %>
-<%@ page import="kr.go.busan.*" %>
+<%@ page import="kr.go.visitbusan.*" %>
 <c:set var="path" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>

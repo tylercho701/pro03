@@ -1,14 +1,12 @@
 package kr.go.visitbusan.dto;
 
-import java.util.Date;
-
 public class QnA {
 	private String qid;
 	private String qTitle;
 	private String qContent;
 	private String qType;
 	private String qIdGroup;
-	private Date askedAt;
+	private String askedAt;
 	private String askedBy;
 	private int readCnt;
 	
@@ -42,10 +40,10 @@ public class QnA {
 	public void setqIdGroup(String qIdGroup) {
 		this.qIdGroup = qIdGroup;
 	}
-	public Date getAskedAt() {
+	public String getAskedAt() {
 		return askedAt;
 	}
-	public void setAskedAt(Date askedAt) {
+	public void setAskedAt(String askedAt) {
 		this.askedAt = askedAt;
 	}
 	public String getAskedBy() {

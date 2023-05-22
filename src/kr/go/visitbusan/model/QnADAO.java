@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import kr.go.visitbusan.dto.Notice;
 import kr.go.visitbusan.dto.QnA;
 import kr.go.visitbusan.util.MySQL8;
 
@@ -30,7 +29,7 @@ public class QnADAO {
 				qna.setqContent(rs.getString("qContent"));
 				qna.setqType(rs.getString("qType"));
 				qna.setqIdGroup(rs.getString("qIdGroup"));
-				qna.setAskedAt(rs.getDate("askedAt"));
+				qna.setAskedAt(rs.getString("askedAt"));
 				qna.setAskedBy(rs.getString("askedBy"));
 				qna.setReadCnt(rs.getInt("readCnt"));
 				qnAList.add(qna);
@@ -42,7 +41,7 @@ public class QnADAO {
 		} catch (Exception e){	//알 수 없는 예외인 경우 발생
 			e.printStackTrace();
 		}
-		MySQL8.close(rs, pstmt, conn);
+		MySQL8.close(conn, pstmt, rs);
 		return qnAList;
 	}
 	
@@ -62,7 +61,7 @@ public class QnADAO {
 					qna.setqContent(rs.getString("qContent"));
 					qna.setqType(rs.getString("qType"));
 					qna.setqIdGroup(rs.getString("qIdGroup"));
-					qna.setAskedAt(rs.getDate("askedAt"));
+					qna.setAskedAt(rs.getString("askedAt"));
 					qna.setAskedBy(rs.getString("askedBy"));
 					qna.setReadCnt(rs.getInt("readCnt"));
 					qnAList.add(qna);
@@ -74,7 +73,7 @@ public class QnADAO {
 			} catch (Exception e){	//알 수 없는 예외인 경우 발생
 				e.printStackTrace();
 			}
-			MySQL8.close(rs, pstmt, conn);
+			MySQL8.close(conn, pstmt, rs);
 			return qnAList;
 		}
 		
@@ -94,7 +93,7 @@ public class QnADAO {
 					qna.setqContent(rs.getString("qContent"));
 					qna.setqType(rs.getString("qType"));
 					qna.setqIdGroup(rs.getString("qIdGroup"));
-					qna.setAskedAt(rs.getDate("askedAt"));
+					qna.setAskedAt(rs.getString("askedAt"));
 					qna.setAskedBy(rs.getString("askedBy"));
 					qna.setReadCnt(rs.getInt("readCnt"));
 				}
@@ -105,7 +104,7 @@ public class QnADAO {
 			} catch (Exception e){	//알 수 없는 예외인 경우 발생
 				e.printStackTrace();
 			}
-			MySQL8.close(rs, pstmt, conn);
+			MySQL8.close(conn, pstmt, rs);
 			return qna;
 		}
 	
@@ -123,7 +122,7 @@ public class QnADAO {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-		MySQL8.close(pstmt, conn);
+		MySQL8.close(conn, pstmt);
 	}
 	
 	// Insert Notice
@@ -147,7 +146,7 @@ public class QnADAO {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-		MySQL8.close(pstmt, conn);
+		MySQL8.close(conn, pstmt);
 		return cnt;
 	}
 	
@@ -166,7 +165,7 @@ public class QnADAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			MySQL8.close(rs, pstmt, conn);
+			MySQL8.close(conn, pstmt, rs);
 		}
 		
 		int tmp = Integer.parseInt(qId) + 1;
@@ -194,7 +193,7 @@ public class QnADAO {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-		MySQL8.close(pstmt, conn);
+		MySQL8.close(conn, pstmt);
 		return cnt;
 	}
 	
@@ -214,7 +213,7 @@ public class QnADAO {
 				qna.setqContent(rs.getString("qContent"));
 				qna.setqType(rs.getString("qType"));
 				qna.setqIdGroup(rs.getString("qIdGroup"));
-				qna.setAskedAt(rs.getDate("askedAt"));
+				qna.setAskedAt(rs.getString("askedAt"));
 				qna.setAskedBy(rs.getString("askedBy"));
 				qna.setReadCnt(rs.getInt("readCnt"));
 			}
@@ -225,7 +224,7 @@ public class QnADAO {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-		MySQL8.close(rs, pstmt, conn);
+		MySQL8.close(conn, pstmt, rs);
 		return qna;
 	}
 		
@@ -246,7 +245,7 @@ public class QnADAO {
 		} catch (Exception e){	//알 수 없는 예외인 경우 발생
 			e.printStackTrace();
 		}
-		MySQL8.close(pstmt, conn);
+		MySQL8.close(conn, pstmt);
 		return cnt;
 	}
 
@@ -266,7 +265,7 @@ public class QnADAO {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-		MySQL8.close(pstmt, conn);
+		MySQL8.close(conn, pstmt);
 		return cnt;
 	}
 	
@@ -286,7 +285,7 @@ public class QnADAO {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-		MySQL8.close(pstmt, conn);
+		MySQL8.close(conn, pstmt);
 		return cnt;
 	}
 	

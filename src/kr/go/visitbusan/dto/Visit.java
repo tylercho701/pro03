@@ -8,7 +8,7 @@ public class Visit {
 	private String visitImgMain;
 	private String visitImgSub1;
 	private String visitImgSub2;
-	private String likeCnt;
+	private int likeCnt;
 	
 	public String getVisitId() {
 		return visitId;
@@ -52,10 +52,10 @@ public class Visit {
 	public void setVisitImgSub2(String visitImgSub2) {
 		this.visitImgSub2 = visitImgSub2;
 	}
-	public String getLikeCnt() {
+	public int getLikeCnt() {
 		return likeCnt;
 	}
-	public void setLikeCnt(String likeCnt) {
+	public void setLikeCnt(int likeCnt) {
 		this.likeCnt = likeCnt;
 	}
 }

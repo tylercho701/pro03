@@ -18,7 +18,7 @@ public class MySQLTest {
 	public void test1() {
 		try {
 			conn = MySQL8.getConnection();
-			pstmt = conn.prepareStatement(MySQL8.SAMPLE_SELECT_ALL);
+			pstmt = conn.prepareStatement(MySQL8.SELECT_SAMPLE_ALL);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				System.out.println(rs.getString("item1"));

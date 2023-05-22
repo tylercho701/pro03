@@ -56,7 +56,7 @@ create table review(
     reviewedAt datetime default current_timestamp,
     reviewedBy varchar(20),
     visitId varchar(20),
-    point int default 6,
+    point int default 5,
     img varchar(200),
     likeCnt int default 0,
     foreign key(reviewedBy) references member(id),

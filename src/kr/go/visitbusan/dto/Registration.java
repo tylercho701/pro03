@@ -1,12 +1,11 @@
 package kr.go.visitbusan.dto;
 
-import java.util.Date;
 
 public class Registration {
 	private String regId;
 	private String registeredBy;
 	private String visitId;
-	private Date regDate;
+	private String regDate;
 	private String rStatus;
 	
 	public String getRegId() {
@@ -27,10 +26,10 @@ public class Registration {
 	public void setVisitId(String visitId) {
 		this.visitId = visitId;
 	}
-	public Date getRegDate() {
+	public String getRegDate() {
 		return regDate;
 	}
-	public void setRegDate(Date regDate) {
+	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
 	public String getrStatus() {

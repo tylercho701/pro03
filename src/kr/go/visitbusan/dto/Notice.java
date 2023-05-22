@@ -1,12 +1,10 @@
 package kr.go.visitbusan.dto;
 
-import java.util.Date;
-
 public class Notice {
 	private String noticeId;
 	private String noticeTitle;
 	private String noticeContent;
-	private Date writtenAt;
+	private String writtenAt;
 	private String writtenBy;
 	private String attachment;
 	private int readCnt;
@@ -28,10 +26,10 @@ public class Notice {
 	public void setNoticeContent(String noticeContent) {
 		this.noticeContent = noticeContent;
 	}
-	public Date getWrittenAt() {
+	public String getWrittenAt() {
 		return writtenAt;
 	}
-	public void setWrittenAt(Date writtenAt) {
+	public void setWrittenAt(String writtenAt) {
 		this.writtenAt = writtenAt;
 	}
 	public String getWrittenBy() {

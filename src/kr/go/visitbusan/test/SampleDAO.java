@@ -17,7 +17,7 @@ public class SampleDAO {
 	public ArrayList<Sample1> getSampleList(){
 		try {
 			conn = MySQL8.getConnection();
-			pstmt = conn.prepareStatement(MySQL8.SAMPLE_SELECT_ALL);
+			pstmt = conn.prepareStatement(MySQL8.SELECT_SAMPLE_ALL);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				Sample1 sam = new Sample1();
@@ -36,7 +36,7 @@ public class SampleDAO {
 		Sample1 sam = new Sample1();
 		try {
 			conn = MySQL8.getConnection();
-			pstmt = conn.prepareStatement(MySQL8.SAMPLE_SELECT_ONE);
+			pstmt = conn.prepareStatement(MySQL8.SELECT_SAMPLE_ONE);
 			pstmt.setString(1, item1);
 			rs = pstmt.executeQuery();
 			if(rs.next()){
@@ -54,7 +54,7 @@ public class SampleDAO {
 		int cnt = 0;
 		try {
 			conn = MySQL8.getConnection();
-			pstmt = conn.prepareStatement(MySQL8.SAMPLE_INSERT);
+			pstmt = conn.prepareStatement(MySQL8.INSERT_SAMPLE);
 			pstmt.setString(1, sam.getItem1());
 			pstmt.setInt(2, sam.getItem2());
 			cnt = pstmt.executeUpdate();
@@ -68,7 +68,7 @@ public class SampleDAO {
 		int cnt = 0;
 		try {
 			conn = MySQL8.getConnection();
-			pstmt = conn.prepareStatement(MySQL8.SAMPLE_UPDATE);
+			pstmt = conn.prepareStatement(MySQL8.UPDATE_SAMPLE);
 			pstmt.setInt(1, sam.getItem2());
 			pstmt.setString(2, sam.getItem1());
 			cnt = pstmt.executeUpdate();
@@ -82,7 +82,7 @@ public class SampleDAO {
 		int cnt = 0;
 		try {
 			conn = MySQL8.getConnection();
-			pstmt = conn.prepareStatement(MySQL8.SAMPLE_DELETE);
+			pstmt = conn.prepareStatement(MySQL8.DELETE_SAMPLE);
 			pstmt.setString(1, item1);
 			cnt = pstmt.executeUpdate();
 		} catch(Exception e){

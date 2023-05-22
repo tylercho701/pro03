@@ -27,7 +27,7 @@ public class ReviewDAO {
 				rev.setReviewId(rs.getString("reviewId"));
 				rev.setReviewTitle(rs.getString("reviewTitle"));
 				rev.setReviewContent(rs.getString("reviewContent"));
-				rev.setReviewedAt(rs.getDate("reviewedAt"));
+				rev.setReviewedAt(rs.getString("reviewedAt"));
 				rev.setReviewedBy(rs.getString("reviewedBy"));
 				rev.setVisitId(rs.getString("VisitId"));
 				rev.setRegId(rs.getString("RegId"));
@@ -43,7 +43,7 @@ public class ReviewDAO {
 		} catch (Exception e){	//알 수 없는 예외인 경우 발생
 			e.printStackTrace();
 		}
-		MySQL8.close(rs, pstmt, conn);
+		MySQL8.close(conn, pstmt, rs);
 		return reviewList;
 	}
 	
@@ -63,7 +63,7 @@ public class ReviewDAO {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-		MySQL8.close(pstmt, conn);
+		MySQL8.close(conn, pstmt);
 		return cnt;
 	}
 	
@@ -90,7 +90,7 @@ public class ReviewDAO {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-		MySQL8.close(pstmt, conn);
+		MySQL8.close(conn, pstmt);
 		return cnt;
 	}
 	
@@ -109,7 +109,7 @@ public class ReviewDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			MySQL8.close(rs, pstmt, conn);
+			MySQL8.close(conn, pstmt, rs);
 		}
 		
 		int tmp = Integer.parseInt(ReviewId) + 1;
@@ -131,7 +131,7 @@ public class ReviewDAO {
 				rev.setReviewId(rs.getString("reviewId"));
 				rev.setReviewTitle(rs.getString("reviewTitle"));
 				rev.setReviewContent(rs.getString("reviewContent"));
-				rev.setReviewedAt(rs.getDate("reviewedAt"));
+				rev.setReviewedAt(rs.getString("reviewedAt"));
 				rev.setReviewedBy(rs.getString("reviewedBy"));
 				rev.setVisitId(rs.getString("VisitId"));
 				rev.setRegId(rs.getString("RegId"));
@@ -146,7 +146,7 @@ public class ReviewDAO {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-		MySQL8.close(rs, pstmt, conn);
+		MySQL8.close(conn, pstmt, rs);
 		return rev;
 	}
 		
@@ -175,7 +175,7 @@ public class ReviewDAO {
 		} catch (Exception e){	//알 수 없는 예외인 경우 발생
 			e.printStackTrace();
 		}
-		MySQL8.close(pstmt, conn);
+		MySQL8.close(conn, pstmt);
 		return cnt;
 	}
 
@@ -194,7 +194,7 @@ public class ReviewDAO {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-		MySQL8.close(pstmt, conn);
+		MySQL8.close(conn, pstmt);
 		return cnt;
 	}
 	

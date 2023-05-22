@@ -49,7 +49,7 @@ public class MemberDAO {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} finally {
-				MySQL8.close(rs, pstmt, conn);
+				MySQL8.close(conn, pstmt, rs);
 			}
 		memberUpdateLogCnt(id);
 		return cnt;
@@ -67,7 +67,7 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			MySQL8.close(pstmt, conn);
+			MySQL8.close(conn, pstmt);
 		}
 	}
 	
@@ -100,7 +100,7 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			MySQL8.close(rs, pstmt, conn);
+			MySQL8.close(conn, pstmt, rs);
 		}
 		return mem;
 	}
@@ -123,7 +123,7 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			MySQL8.close(pstmt, conn);
+			MySQL8.close(conn, pstmt);
 		}
 		return cnt;
 	}
@@ -146,7 +146,7 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			MySQL8.close(pstmt, conn);
+			MySQL8.close(conn, pstmt);
 		}
 		return cnt;
 	}
@@ -168,7 +168,7 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			MySQL8.close(pstmt, conn);
+			MySQL8.close(conn, pstmt);
 		}
 		return cnt;
 	}
@@ -187,11 +187,9 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			MySQL8.close(pstmt, conn);
+			MySQL8.close(conn, pstmt);
 		}
 		return cnt;
 	}
-	
-	
 	
 }

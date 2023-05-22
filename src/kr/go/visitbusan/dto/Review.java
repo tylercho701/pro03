@@ -1,12 +1,10 @@
 package kr.go.visitbusan.dto;
 
-import java.util.Date;
-
 public class Review {
 	private String reviewId;
 	private String reviewTitle;
 	private String reviewContent;
-	private Date reviewedAt;
+	private String reviewedAt;
 	private String reviewedBy;
 	private String visitId;
 	private String regId;
@@ -14,6 +12,12 @@ public class Review {
 	private String img;
 	private int likeCnt;
 	
+	public String getRegId() {
+		return regId;
+	}
+	public void setRegId(String regId) {
+		this.regId = regId;
+	}
 	public String getReviewId() {
 		return reviewId;
 	}
@@ -32,10 +36,10 @@ public class Review {
 	public void setReviewContent(String reviewContent) {
 		this.reviewContent = reviewContent;
 	}
-	public Date getReviewedAt() {
+	public String getReviewedAt() {
 		return reviewedAt;
 	}
-	public void setReviewedAt(Date reviewedAt) {
+	public void setReviewedAt(String reviewedAt) {
 		this.reviewedAt = reviewedAt;
 	}
 	public String getReviewedBy() {
@@ -49,12 +53,6 @@ public class Review {
 	}
 	public void setVisitId(String visitId) {
 		this.visitId = visitId;
-	}
-	public final String getRegId() {
-		return regId;
-	}
-	public final void setRegId(String regId) {
-		this.regId = regId;
 	}
 	public int getPoint() {
 		return point;
