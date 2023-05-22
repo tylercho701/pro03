@@ -58,11 +58,15 @@ public class MySQL8 {
 	public final static String QNA_LIST_ALL = "select * from qna order by parno desc, qno asc";
 	public final static String QNA_LIST_BY_QIDGROUP = "select * from qna where qIdGroup = ? order by qid asc";
 	public final static String QNA_LIST_DETAIL = "select * from qna where qid=?";
+	public final static String QNA_QUESTION_DETAIL = "select * from qna where qid=? and qIdGroup = '1'";		//신규
+	public final static String QNA_ANSWER_DETAIL = "select * from qna where qid=? and qIdGroup = '1'";			//신규
 	public final static String QNA_UPDATE_READCNT = "update qna set readcnt = readcnt + 1 where qId = ?";
 	public final static String QNA_INSERT_Q = "insert into qna(qid, qTitle, qContent, qType, qIdGroup, askedBy) values (?, ?, ?, ?, ?, ?)";
-	public final static String QNA_QID_GENERATOR = "select qid from (select * from qna order by qid desc) where rownum = 1";
 	public final static String QNA_INSERT_A = "insert into qna(qid, qTitle, qContent, qType, qIdGroup, askedBy) values (?, ?, ?, ?, ?, ?)";
-	public final static String QNA_UPDATE = "update qna set qTitle = ?, qContent = ? askedAt = default where qid=?";
+	public final static String QNA_QID_GENERATOR = "select qid from (select * from qna order by qid desc) where rownum = 1";
+	public final static String QNA_UPDATE = "update qna set qTitle = ?, qContent = ? askedAt = default where qid=?";				// QNA 수정을 Q와 A로 나눌지 의견 청취 필요
+	public final static String QNA_UPDATE_QUESTION = "update qna set qTitle = ?, qContent = ? askedAt = default where qid=?";		// 신규
+	public final static String QNA_UPDATE_ANSWER = "update qna set qTitle = ?, qContent = ? askedAt = default where qid=?";			// 신규
 	public final static String QNA_DELETE_ALL_BY_QIDGROUP = "delete from qna where qIdGroup = ?";
 	public final static String QNA_DELETE_REPLY = "delete from qna where qid = ?";
 	
@@ -70,10 +74,11 @@ public class MySQL8 {
 	//visit
 	public final static String VISIT_LIST_BY_CATECODE = "SELECT * FROM VISIT WHERE CATECODE=?";
 	public final static String VISIT_LIST_BY_VISITID = "SELECT * FROM VISIT WHERE VISITID=?";
+	public final static String VISIT_ID_GENERATOR = "SELECT VISITID FROM VISIT ORDER BY VISITID DESC LIMIT 1";
 	public final static String ADMIN_INSERT_VISIT = "INSERT INTO VISIT VALUES(?, ?, ?, ?, ?, ?, ?, default)";
 	public final static String ADMIN_UPDATE_VISIT = "UPDATE VISIT SET visitTitle=?, visitCateCode=?, visitAddr=?, visitImgMain=?, visitImgSub1=?, visitImgSub2=? where visitId=?";
 	public final static String ADMIN_DELETE_VISIT = "DELETE FROM VISIT WHERE visitId=?";
-	public final static String VISIT_ID_GENERATOR = "SELECT VISITID FROM VISIT ORDER BY VISITID DESC LIMIT 1";
+	
 	
 	//cate
 	public final static String CATELIST_BY_CATECODE = "SELECT * FROM CATEGORY WHERE CATECODE LIKE '?||%'";
