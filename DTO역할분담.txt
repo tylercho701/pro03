@@ -1,0 +1,14 @@
+DTO 역할분담
+이상혁
+	- ADMIN > VISIT
+	- ADMIN > CATE
+	- ADMIN > REGI
+	- REGI
+	- POKE
+
+
+조교행
+	- MEMBER
+	- NOTICE
+	- REVIEW
+	- QNA

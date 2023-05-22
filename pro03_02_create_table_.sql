@@ -90,8 +90,10 @@ create table registration
 			(regId varchar(8),
              registeredBy varchar(20),
              visitId varchar(8),
-             regDate datetime default current_timestamp,
+             regDate datetime not null,
              rStatus varchar(20) default '여행신청',
              primary key (regId),
              constraint foreign key (registeredBy) references member(id),
              constraint foreign key (visitId) references visit(visitId));
+             
+select noticeId from (select noticeId from notice order by noticeId desc) where rownum = 1;
