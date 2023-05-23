@@ -1,0 +1,27 @@
+로그인 
+https://bulma.io/documentation/elements/box/
+
+각종 테이블
+https://bulma.io/documentation/elements/table/
+
+visit 상세 detail 내 상세 / 지도 / 리뷰
+https://bulma.io/documentation/components/tabs/
+
+헤더
+https://bulma.io/documentation/components/navbar/
+
+타일
+https://bulma.io/documentation/layout/tiles/
+https://bulmatemplates.github.io/bulma-templates/templates/modal-cards.html
+
+
+bulma templetes
+https://github.com/topics/bulma-template
+
+
+lee
+header.jsp -> done
+visit -> -ing
+
+cho
+table pages

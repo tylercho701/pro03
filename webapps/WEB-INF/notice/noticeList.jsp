@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div class="container">
-		<%@ include file="../../hd.jsp" %>
+		<%@ include file="../../header.jsp" %>
 		<div class="content">
 			<section>
 				<h2 class="title">공지사항</h2>
@@ -53,7 +53,7 @@
 				</c:if>
 			</section>
 		</div>
-		<%@ include file="../../ft.jsp" %>
+		<%@ include file="../../footer.jsp" %>
 	</div>
 </body>
 </html>

@@ -71,6 +71,27 @@ public class MemberDAO {
 		}
 	}
 	
+	// 아이디 중복 확인
+	public int idCheck(String id){
+		int cnt = 0;
+		try {
+			conn = MySQL8.getConnection();
+			pstmt = conn.prepareStatement(MySQL8.MEMBER_LOGIN);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				cnt = 1;
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			MySQL8.close(conn, pstmt, rs);
+		}
+		return cnt;
+	}
+	
 	// 내정보
 	public Member memberMyInfo(String id) throws InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeySpecException, InvalidAlgorithmParameterException, BadPaddingException, IllegalBlockSizeException{
 		Member mem = new Member();

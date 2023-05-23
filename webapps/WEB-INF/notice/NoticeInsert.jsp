@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div class="container">
-		<%@ include file="../../hd.jsp" %>
+		<%@ include file="../../header.jsp" %>
 		<div class="content">
 			<section class="container-fluid">
 				<h2 class="title">공지사항 등록</h2>
@@ -53,7 +53,7 @@
 				</form>
 			</section>
 		</div>
-		<%@ include file="../../ft.jsp" %>
+		<%@ include file="../../footer.jsp" %>
 	</div>
 </body>
 </html>

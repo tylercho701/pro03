@@ -20,7 +20,7 @@
 </head>
 <body>
 	<div class="container">
-		<%@ include file="../../hd.jsp" %>
+		<%@ include file="../../header.jsp" %>
 		<div class="content">
 			<section class="container-fluid">
 				<h2 class="title">공지사항 상세</h2>
@@ -73,7 +73,7 @@
 				</div>
 			</section>
 		</div>
-		<%@ include file="../../ft.jsp" %>
+		<%@ include file="../../footer.jsp" %>
 	</div>
 </body>
 </html>

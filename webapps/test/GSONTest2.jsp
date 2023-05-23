@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="container">
-<%
+<%-- <%
 	Sample1 dto = new Sample1();
 
 	dto.setItem1("kangseulgi");
@@ -31,7 +31,7 @@
 	Sample1 dto2 = gson.fromJson(json, Sample1.class);	//json 객체를 배열요소로 변경하기
 	out.println("<h2>JSON 요소를 DTO 객체로 변경된 데이터 출력</h2>");
 	out.print(dto2.toString());
-%>
+%> --%>
 </div>
 </body>
 </html>

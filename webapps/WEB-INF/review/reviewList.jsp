@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div class="container">
-		<%@ include file="../../hd.jsp" %>
+		<%@ include file="../../header.jsp" %>
 		<div class="content">
 			<section>
 				<h2 class="title">리뷰 목록</h2>
@@ -51,7 +51,7 @@
 				</div>
 			</section>
 		</div>
-		<%@ include file="../../ft.jsp" %>
+		<%@ include file="../../footer.jsp" %>
 	</div>
 </body>
 </html>

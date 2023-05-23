@@ -17,14 +17,12 @@
 </style>
 </head>
 <body>
-
+<%@ include file="../header.jsp" %>
 	<div class="container">
-		<%@ include file="../hd.jsp" %>
 		<div class="content">
 			<h2 class="title">메인페이지</h2>
 		</div>
-		<%@ include file="../ft.jsp" %>
 	</div>
-
+<%@ include file="../footer.jsp" %>
 </body>
 </html>
