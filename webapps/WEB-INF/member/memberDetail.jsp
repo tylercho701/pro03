@@ -12,7 +12,7 @@
 <%@ include file="../../common.jsp" %>
 <link rel="stylesheet" href="/source/bulma.css">
 <meta charset="UTF-8">
-<title>MyPage</title>
+<title>MemberDetail</title>
 <style>
 
 </style>
@@ -20,7 +20,7 @@
 <body>
 <%@ include file="../../header.jsp" %>
 <div class="container is-fullhd">
-	<h2 class="title" style="padding-top:30px" >내 정보 보기</h2>
+	<h2 class="title" style="padding-top:30px" >회원 정보 상세 보기</h2>
 	<table class="table is-striped table is-fullwidth">
 		<tbody>
 			<tr>
@@ -54,8 +54,8 @@
 			<tr>
 				<td colspan="2">
 				<div class="buttons">
-					<a href="${path }/MemberUpdate.do?id=${member.id}" class="button is-primary">회원 정보 수정</a>
-					<a href="${path }/MemberDeletePro.do?id=${member.id}" class="button is-danger">회원 탈퇴</a>
+					<a href="${path }/MemberUpdate.do?id=${mem.id}" class="button is-primary">회원 정보 수정</a>
+					<a href="${path }/MemberDeletePro.do?id=${mem.id}" class="button is-danger">회원 탈퇴</a>
 					<a href="javascript:history.go(-1)" class="button is-warning">뒤로</a>
 				</div>
 				</td>

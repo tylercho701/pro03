@@ -1,4 +1,4 @@
-package kr.go.visitbusan.controller.member;
+package kr.go.visitbusan.controller.notice;
 
 import java.io.IOException;
 
@@ -8,23 +8,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.go.visitbusan.service.MemberService;
+import kr.go.visitbusan.service.NoticeService;
 
-@WebServlet("/MemberDeletePro.do")
-public class MemberDeleteProCtrl extends HttpServlet {
+@WebServlet("/NoticeDelete.do")
+public class NoticeDeleteCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");		
-		MemberService mService = new MemberService();
-		
-		int cnt = mService.memberDelete(id);
 		String msg = "";
-		if(cnt==1){
-			msg = "회원 탈퇴가 정상적으로 완료 되었습니다.";
+		String noticeId = request.getParameter("noticeId");
+		NoticeService nService = new NoticeService();
+		int cnt = nService.noticeDelete(noticeId);
+		
+		if(cnt == 1){
+			msg = "공지글 삭제에 성공했습니다.";
+			request.setAttribute("msg", msg);
 			response.sendRedirect(request.getContextPath());
 		} else {
-			msg = "회원 탈퇴 처리가 실패되었습니다.";
+			msg = "공지글 삭제에 실패했습니다.";
+			request.setAttribute("msg", msg);
 			response.sendRedirect(request.getContextPath());
 		}
 	}

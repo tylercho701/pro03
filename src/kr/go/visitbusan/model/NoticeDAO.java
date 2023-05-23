@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import kr.go.visitbusan.dto.Notice;
 import kr.go.visitbusan.util.MySQL8;
 
-public class NoticeDAOMySQL implements NoticeDAOInterface{
+public class NoticeDAO implements NoticeDAOInterface{
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
@@ -216,5 +216,4 @@ public class NoticeDAOMySQL implements NoticeDAOInterface{
 		MySQL8.close(conn, pstmt);
 		return cnt;
 	}
-	
 }

@@ -74,7 +74,15 @@ insert into review values ('000014', '리뷰 테스트 14', '리뷰 테스트 �
 insert into review values ('000015', '리뷰 테스트 15', '리뷰 테스트 글 15번 입니다.', default, 'binbin', '3', '000015', 5, '/15.jpg', default);
 
 -- 암호화 된 암호로 변경 (복호화 암호는 1234)
-update member set pw = '4D8TZ41Pmqq9ys02TS3O19/+zJmTBZ4NH/Xtj6ZRoAcJiS7iLWx4/VhWvawCN6Wsm9ewvQ==' where id = 'tyler';
+update member set pw = '4D8TZ41Pmqq9ys02TS3O19/+zJmTBZ4NH/Xtj6ZRoAcJiS7iLWx4/VhWvawCN6Wsm9ewvQ==' where id = 'binbin';
+update member set pw = '4D8TZ41Pmqq9ys02TS3O19/+zJmTBZ4NH/Xtj6ZRoAcJiS7iLWx4/VhWvawCN6Wsm9ewvQ==' where id = 'bklove';
+update member set pw = '4D8TZ41Pmqq9ys02TS3O19/+zJmTBZ4NH/Xtj6ZRoAcJiS7iLWx4/VhWvawCN6Wsm9ewvQ==' where id = 'criminalcity';
+update member set pw = '4D8TZ41Pmqq9ys02TS3O19/+zJmTBZ4NH/Xtj6ZRoAcJiS7iLWx4/VhWvawCN6Wsm9ewvQ==' where id = 'faker';
+update member set pw = '4D8TZ41Pmqq9ys02TS3O19/+zJmTBZ4NH/Xtj6ZRoAcJiS7iLWx4/VhWvawCN6Wsm9ewvQ==' where id = 'jiny';
+update member set pw = '4D8TZ41Pmqq9ys02TS3O19/+zJmTBZ4NH/Xtj6ZRoAcJiS7iLWx4/VhWvawCN6Wsm9ewvQ==' where id = 'jungwoo';
+update member set pw = '4D8TZ41Pmqq9ys02TS3O19/+zJmTBZ4NH/Xtj6ZRoAcJiS7iLWx4/VhWvawCN6Wsm9ewvQ==' where id = 'narae';
+update member set pw = '4D8TZ41Pmqq9ys02TS3O19/+zJmTBZ4NH/Xtj6ZRoAcJiS7iLWx4/VhWvawCN6Wsm9ewvQ==' where id = 'seonjeong';
+
 
 select * from member;
 select * from review;

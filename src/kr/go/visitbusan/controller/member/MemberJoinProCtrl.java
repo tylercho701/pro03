@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.go.visitbusan.dto.Member;
-import kr.go.visitbusan.model.MemberDAO;
+import kr.go.visitbusan.service.MemberService;
 import kr.go.visitbusan.util.AES256;
 
 @WebServlet("/MemberJoinPro.do")
@@ -48,8 +48,8 @@ public class MemberJoinProCtrl extends HttpServlet {
 		mem.setEmail(request.getParameter("email"));
 		mem.setAddr(request.getParameter("address1")+" "+request.getParameter("address2"));
 		
-		MemberDAO dao = new MemberDAO();
-		int cnt = dao.memberInsert(mem);
+		MemberService mService = new MemberService();
+		int cnt = mService.memberInsert(mem);
 		if(cnt>=1){
 			response.sendRedirect("MemberLogin.do");
 		} else {

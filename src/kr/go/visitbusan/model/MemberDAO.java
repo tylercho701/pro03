@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -18,7 +19,7 @@ import kr.go.visitbusan.util.MySQL8;
 
 import com.crypto.util.AES256;
 
-public class MemberDAO {
+public class MemberDAO implements MemberDAOInterface {
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
@@ -27,7 +28,7 @@ public class MemberDAO {
 	String qpw;
 	
 	// 로그인 시 ID 확인, logCnt +1
-	public int memberLogin(String id, String pw) throws InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeySpecException, InvalidAlgorithmParameterException, BadPaddingException, IllegalBlockSizeException{
+	public int memberLogin(String id, String pw){
 		int cnt = 0;
 		try {
 			conn = MySQL8.getConnection();
@@ -35,7 +36,14 @@ public class MemberDAO {
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if(rs.next()){
-				qpw = AES256.decryptAES256(rs.getString("pw"), key);
+				try {
+					qpw = AES256.decryptAES256(rs.getString("pw"), key);
+				} catch (InvalidKeyException | NoSuchPaddingException
+						| NoSuchAlgorithmException | InvalidKeySpecException
+						| InvalidAlgorithmParameterException
+						| BadPaddingException | IllegalBlockSizeException e) {
+					e.printStackTrace();
+				}
 				if(pw.equals(qpw)){
 					cnt = 1;
 				} else {
@@ -92,8 +100,50 @@ public class MemberDAO {
 		return cnt;
 	}
 	
+	// 회원 리스트
+	public ArrayList<Member> memberList(){
+		ArrayList<Member> memList = new ArrayList<Member>();
+		try {
+			conn = MySQL8.getConnection();
+			pstmt = conn.prepareStatement(MySQL8.MEMBER_LIST_ALL);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				Member mem = new Member();
+				mem.setId(rs.getString("id"));
+				try {
+					qpw = AES256.decryptAES256(rs.getString("pw"), key);
+				} catch (InvalidKeyException | NoSuchPaddingException
+						| NoSuchAlgorithmException | InvalidKeySpecException
+						| InvalidAlgorithmParameterException
+						| BadPaddingException | IllegalBlockSizeException e) {
+					e.printStackTrace();
+				}
+				int k = qpw.length();	//암호 글자수 세기
+				String vpw = qpw.substring(0, 3);	//3글자만 암호를 보여주기
+				String hpw = "";
+				for(int i=0;i<k-3;i++){	//나머지는 *로 넣기
+					hpw+="*";
+				}
+				mem.setPw(vpw+hpw);
+				mem.setName(rs.getString("name"));
+				mem.setTel(rs.getString("tel"));
+				mem.setEmail(rs.getString("email"));
+				mem.setAddr(rs.getString("addr"));
+				mem.setLogCnt(rs.getInt("logCnt"));
+				memList.add(mem);
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			MySQL8.close(conn, pstmt, rs);
+		}
+		return memList; 
+	}
+	
 	// 내정보
-	public Member memberMyInfo(String id) throws InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeySpecException, InvalidAlgorithmParameterException, BadPaddingException, IllegalBlockSizeException{
+	public Member memberMyInfo(String id){
 		Member mem = new Member();
 		try {
 			conn = MySQL8.getConnection();
@@ -102,7 +152,14 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()){
 				mem.setId(rs.getString("id"));
-				qpw = AES256.decryptAES256(rs.getString("pw"), key);
+				try {
+					qpw = AES256.decryptAES256(rs.getString("pw"), key);
+				} catch (InvalidKeyException | NoSuchPaddingException
+						| NoSuchAlgorithmException | InvalidKeySpecException
+						| InvalidAlgorithmParameterException
+						| BadPaddingException | IllegalBlockSizeException e) {
+					e.printStackTrace();
+				}
 				int k = qpw.length();				//암호 글자수 세기
 				String vpw = qpw.substring(0, 3);	//3글자만 암호를 보여주기
 				String hpw = "";

@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.go.visitbusan.dto.Member;
-import kr.go.visitbusan.model.MemberDAO;
+import kr.go.visitbusan.service.MemberService;
 
 import com.crypto.util.AES256;
 
@@ -58,12 +58,12 @@ public class MemberUpdateProCtrl extends HttpServlet {
 			mem.setAddr(request.getParameter("address1")+" "+request.getParameter("address2"));
 		}
 		
-		MemberDAO dao = new MemberDAO();
+		MemberService mService = new MemberService();
 		int cnt = 0;
 		if(pw!=hiddenpw){
-			cnt = dao.memberUpdateYesPw(mem);
+			cnt = mService.memberUpdateYesPw(mem);
 		} else {
-			cnt = dao.memberUpdateNoPw(mem);
+			cnt = mService.memberUpdateNoPw(mem);
 		}
 		
 		if(cnt>=1){

@@ -122,8 +122,8 @@
 					<tr>
 						<td colspan="2">
 							<input type="submit" value="회원정보수정" class="button is-primary"/>
-							<input type="reset" value="취소" class="button is-danger"/>
-							<a href="${path }/MemberMyPage.do" class="button is-info">마이페이지로 이동</a>
+							<a href="${path }/MemberMyPage.do?id=${mem.id }" class="button is-danger">취소</a>
+							<a href="${path }/MemberMyPage.do?id=${mem.id }" class="button is-info">마이페이지로 이동</a>
 						</td>
 					</tr>
 				</tbody>

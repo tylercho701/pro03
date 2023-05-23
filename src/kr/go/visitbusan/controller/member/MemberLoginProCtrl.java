@@ -1,14 +1,7 @@
 package kr.go.visitbusan.controller.member;
 
 import java.io.IOException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kr.go.visitbusan.model.MemberDAO;
+import kr.go.visitbusan.service.MemberService;
 
 @WebServlet("/MemberLoginPro.do")
 public class MemberLoginProCtrl extends HttpServlet {
@@ -26,17 +19,10 @@ public class MemberLoginProCtrl extends HttpServlet {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		
-		MemberDAO dao = new MemberDAO();
+		MemberService mService = new MemberService();
 		int cnt = 0;
 		
-		try {
-			cnt = dao.memberLogin(id, pw);
-		} catch (InvalidKeyException | NoSuchPaddingException
-				| NoSuchAlgorithmException | InvalidKeySpecException
-				| InvalidAlgorithmParameterException | BadPaddingException
-				| IllegalBlockSizeException e) {
-			e.printStackTrace();
-		}
+		cnt = mService.memberLogin(id, pw);
 
 		HttpSession ses = request.getSession();
 		String msg = "";

@@ -30,27 +30,27 @@
 								<th><label for="title">제목</label></th>
 								<td>
 									<input type="hidden" name="writtenBy" id="writtenBy" value="${sid }">
-									<input type="hidden" name="noticeId" id="noticeId" value="${noti.noticeId }">
-									<input type="text" name="noticeTitle" id="noticeTitle" maxlength="100" value="${noti.noticeTitle }" required autofocus>
+									<input type="hidden" name="noticeId" id="noticeId" value="${notice.noticeId }">
+									<input type="text" name="noticeTitle" id="noticeTitle" maxlength="100" value="${notice.noticeTitle }" required autofocus>
 								</td>
 							</tr>
 							<tr>
 								<th><label for="noticeContent">내용</label></th>
 								<td>
-									<textarea cols="100" rows="10" id="noticeContent" name="noticeContent" required >${noti.noticeContent }</textarea>
+									<textarea cols="100" rows="10" id="noticeContent" name="noticeContent" required >${notice.noticeContent }</textarea>
 								</td>
 							</tr>
 							<tr>
 								<th><label for="attachment">첨부파일</label></th>
 								<td>
 									<span>
-										<c:set var="lh" value="${fn:length(noti.attachment) }" />
-										<c:set var="download" value="${fn:substring(noti.attachment,5,lh) }" />
+										<c:set var="lh" value="${fn:length(notice.attachment) }" />
+										<c:set var="download" value="${fn:substring(notice.attachment,5,lh) }" />
 										${download }
 									</span><br>
 									<input type="radio" name="fileSel" id="fileSel1" onclick="fileCall()" checked>교체 안함<br> 
 									<input type="radio" name="fileSel" id="fileSel2" onclick="fileCall()" >교체<br>
-									<input type="file" name="attachment" id="attachment" class="">
+									<input type="file" name="attachment" id="attachment" class="button is-default">
 									<input type="hidden" name="file1" id="file2" value="${download }">
 									<script>
 										function fileCall(){
@@ -73,8 +73,8 @@
 							</tr>
 							<tr>
 								<td colspan="2">
-									<input type="submit" value="글 수정" class="btn btn-primary">
-									<a href="${path }/NoticeList.do" class="btn btn-primary">글 목록</a>
+									<input type="submit" value="글 수정" class="button is-primary">
+									<a href="${path }/NoticeList.do" class="button is-info">글 목록</a>
 								</td>
 							</tr>
 						</tbody>

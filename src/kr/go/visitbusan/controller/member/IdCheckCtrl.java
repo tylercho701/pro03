@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.go.visitbusan.model.MemberDAO;
+import kr.go.visitbusan.service.MemberService;
 
 import org.json.JSONObject;
 
@@ -20,8 +20,8 @@ public class IdCheckCtrl extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		
-		MemberDAO dao = new MemberDAO();
-		int cnt = dao.idCheck(id);
+		MemberService mService = new MemberService();
+		int cnt = mService.idCheck(id);
 		boolean result = false;
 		if(cnt>=1){
 			result = false;
