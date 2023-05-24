@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.go.visitbusan.service.MemberService;
 
@@ -19,6 +20,10 @@ public class MemberDeleteProCtrl extends HttpServlet {
 		MemberService mService = new MemberService();
 		
 		int cnt = mService.memberDelete(id);
+		
+		HttpSession ses = request.getSession();
+		ses.invalidate();
+		
 		String msg = "";
 		if(cnt==1){
 			msg = "회원 탈퇴가 정상적으로 완료 되었습니다.";
@@ -27,5 +32,6 @@ public class MemberDeleteProCtrl extends HttpServlet {
 			msg = "회원 탈퇴 처리가 실패되었습니다.";
 			response.sendRedirect(request.getContextPath());
 		}
+		
 	}
 }

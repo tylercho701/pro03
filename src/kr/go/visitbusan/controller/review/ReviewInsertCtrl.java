@@ -1,4 +1,4 @@
-package kr.go.visitbusan.controller.notice;
+package kr.go.visitbusan.controller.review;
 
 import java.io.IOException;
 
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/NoticeInsert.do")
-public class NoticeInsertCtrl extends HttpServlet {
+@WebServlet("/ReviewInsert.do")
+public class ReviewInsertCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

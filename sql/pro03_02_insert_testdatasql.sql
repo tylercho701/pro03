@@ -83,7 +83,6 @@ update member set pw = '4D8TZ41Pmqq9ys02TS3O19/+zJmTBZ4NH/Xtj6ZRoAcJiS7iLWx4/VhW
 update member set pw = '4D8TZ41Pmqq9ys02TS3O19/+zJmTBZ4NH/Xtj6ZRoAcJiS7iLWx4/VhWvawCN6Wsm9ewvQ==' where id = 'narae';
 update member set pw = '4D8TZ41Pmqq9ys02TS3O19/+zJmTBZ4NH/Xtj6ZRoAcJiS7iLWx4/VhWvawCN6Wsm9ewvQ==' where id = 'seonjeong';
 
-
 select * from member;
 select * from review;
 select * from registration;

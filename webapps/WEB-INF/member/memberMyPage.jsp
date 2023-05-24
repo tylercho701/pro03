@@ -54,8 +54,8 @@
 			<tr>
 				<td colspan="2">
 				<div class="buttons">
-					<a href="${path }/MemberUpdate.do?id=${member.id}" class="button is-primary">회원 정보 수정</a>
-					<a href="${path }/MemberDeletePro.do?id=${member.id}" class="button is-danger">회원 탈퇴</a>
+					<a href="${path }/MemberUpdate.do?id=${mem.id}" class="button is-primary">회원 정보 수정</a>
+					<a href="${path }/MemberDeletePro.do?id=${mem.id}" class="button is-danger">회원 탈퇴</a>
 					<a href="javascript:history.go(-1)" class="button is-warning">뒤로</a>
 				</div>
 				</td>

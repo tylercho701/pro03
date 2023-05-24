@@ -50,10 +50,12 @@ public class MemberJoinProCtrl extends HttpServlet {
 		
 		MemberService mService = new MemberService();
 		int cnt = mService.memberInsert(mem);
-		if(cnt>=1){
-			response.sendRedirect("MemberLogin.do");
-		} else {
+		if(cnt==0){
+			System.out.println("회원 가입이 실패했습니다.");
 			response.sendRedirect("MemberJoin.do");
+		} else {
+			System.out.println("회원 가입이 성공했습니다.");
+			response.sendRedirect("MemberLogin.do");
 		}
 	}
 }

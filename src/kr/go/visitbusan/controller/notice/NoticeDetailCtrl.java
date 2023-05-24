@@ -22,8 +22,8 @@ public class NoticeDetailCtrl extends HttpServlet {
 		
 		NoticeService nService = new NoticeService();
 		Notice notice = nService.noticeDetail(noticeId);
-		String attachment1 = notice.getAttachment().substring(5); 
-		String attachmentPath1 = notice.getAttachment().substring(0,4);
+		String attachment1 = notice.getAttachment().substring(9); 
+		String attachmentPath1 = notice.getAttachment().substring(0,8);
 		
 		attachment1 = URLEncoder.encode(attachment1, "UTF-8");	
 		

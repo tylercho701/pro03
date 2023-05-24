@@ -12,15 +12,15 @@
 <%@ include file="../../common.jsp" %>
 <link rel="stylesheet" href="/source/bulma.css">
 <meta charset="UTF-8">
-<title>JoinMemberPage</title>
+<title>Admin Member Insert</title>
 <style>
 </style>
 </head>
 <body>
 <%@ include file="../../header.jsp" %>
 	<div class="container is-fullhd">
-		<h2 class="title">회원가입페이지</h2>
-		<form name="frm1" id="frm1" action="${path }/MemberJoinPro.do" method="post" onsubmit="return joinCheck(this)">
+		<h2 class="title">관리자 직권 회원 등록 페이지</h2>
+		<form name="frm1" id="frm1" action="${path }/UserJoinPro.do" method="post" onsubmit="return joinCheck(this)">
 			<table class="table is-striped">
 				<tbody>
 					<tr>
@@ -118,7 +118,7 @@
 					</tr>
 					<tr>
 						<td colspan="2">
-							<input type="submit" value="회원가입" class="button is-info"/>
+							<input type="submit" value="회원등록" class="button is-info"/>
 							<input type="reset" value="취소" class="button is-danger"/>
 							
 						</td>

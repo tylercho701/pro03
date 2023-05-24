@@ -9,13 +9,13 @@ import java.util.ArrayList;
 import kr.go.visitbusan.dto.Review;
 import kr.go.visitbusan.util.MySQL8;
 
-public class ReviewDAO {
+public class ReviewDAO implements ReviewDAOInterface{
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	
 	// Review 전체를 List로 출력
-	public ArrayList<Review> ReviewListAll(){
+	public ArrayList<Review> reviewListAll(){
 		ArrayList<Review> reviewList = new ArrayList<Review>();
 		//notice 테이블에서 모든 레코드를 검색하여 반환된 ResultSet을 notiList에 add를 한다.
 		try {
@@ -48,7 +48,7 @@ public class ReviewDAO {
 	}
 	
 	// review like + 1
-	public int revieweUpdateLikeCnt(String reviewId) {
+	public int reviewUpdateLikeCnt(String reviewId) {
 		int cnt = 0;
 		try {
 			conn = MySQL8.getConnection();
@@ -96,13 +96,13 @@ public class ReviewDAO {
 	
 	// NoticeId 생성기
 	public String reviewIdGenerator(){
-		String ReviewId = "";
+		String reviewId = "";
 		try {
 			conn = MySQL8.getConnection();
 			pstmt = conn.prepareStatement(MySQL8.REVIEW_REVIEWID_GENERATOR);
 			rs = pstmt.executeQuery();
 			if(rs.next()){
-				ReviewId = rs.getString("reviewId");
+				reviewId = rs.getString("reviewId");
 			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -112,9 +112,9 @@ public class ReviewDAO {
 			MySQL8.close(conn, pstmt, rs);
 		}
 		
-		int tmp = Integer.parseInt(ReviewId) + 1;
-		ReviewId = tmp + "";
-		return ReviewId;
+		int tmp = Integer.parseInt(reviewId) + 1;
+		reviewId = tmp + "";
+		return reviewId;
 	}
 	
 	// Notice Update

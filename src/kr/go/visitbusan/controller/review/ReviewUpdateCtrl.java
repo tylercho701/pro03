@@ -1,4 +1,4 @@
-package kr.go.visitbusan.controller.notice;
+package kr.go.visitbusan.controller.review;
 
 import java.io.IOException;
 
@@ -9,15 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/NoticeInsert.do")
-public class NoticeInsertCtrl extends HttpServlet {
+import kr.go.visitbusan.dto.Review;
+import kr.go.visitbusan.service.ReviewService;
+
+@WebServlet("/Review")
+public class ReviewUpdateCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
+		String reviewId = request.getParameter("reviewId");
 		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/notice/noticeInsert.jsp");
+		ReviewService rService = new ReviewService();
+		
+		Review review = rService.reviewUpdate(reviewId);
+		request.setAttribute("review", review);
+		
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/review/reviewUpdate.jsp");
 		view.forward(request, response);
 	}
 }

@@ -29,8 +29,8 @@
 							<tr>
 								<th><label for="reviewTitle">제목</label></th>
 								<td>
-									<input type="hidden" name="reviewedBy" id="reviewedBy" value="${sid }">
-									<input type="hidden" name="reviewId" id="reviewId" value="${review.reviewedBy }">
+									<input type="hidden" name="reviewedBy" id="reviewedBy" value="${review.reviewedBy }">
+									<input type="hidden" name="reviewId" id="reviewId" value="${review.reviewId }">
 									<input type="text" name="noticeTitle" id="noticeTitle" maxlength="100" value="${review.reviewTitle }" required autofocus>
 								</td>
 							</tr>
