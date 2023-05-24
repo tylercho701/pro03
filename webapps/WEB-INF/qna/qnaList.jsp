@@ -12,59 +12,57 @@
 <head>
 <%@ include file="../../common.jsp" %>
 <link rel="stylesheet" href="/source/bulma.css">
+<link rel="stylesheet" href="/source/bulma-rtl.css">
 <meta charset="UTF-8">
 <title>QNA List</title>
 <style>
 </style>
 </head>
 <body>
+<%@ include file="../../header.jsp" %>
 	<div class="container">
-		<%@ include file="../../header.jsp" %>
 		<div class="content">
-			<section class="container-fluid">
-				<h2>QNA 목록</h2>
-				<table class="table">
-					<thead>
-						<tr><th>연번</th><th>제목</th><th>작성자</th><th>작성일</th></tr>
-					</thead>
-					<tbody>
-						<c:set var="cnt" value="0" />
-						<c:forEach var="qna" items="${qnaList }">
-							<tr>
-								<c:if test="${qna.qIdGroup==1 }">			<!-- 질문  -->
-									<c:set var="cnt" value="${cnt=cnt+1 }" />
-									<td>${cnt }</td>
-									<td>
-										<a href="${path }/QnAQuestionDetail.do?qid=${qna.qId }">${qna.qTitle }</a>
-									</td>
-								</c:if>
-								<c:if test="${qna.qIdGroup==2 }">			<!-- 답변  -->
-									<td colspan="2">
-										<a href="${path }/QnAAnswerDetail.do?qid=${qna.qId }" >${qna.qTitle }</a>
-									</td>
-								</c:if>
-								<td>${qna.askedBy }</td>
-								<td>
-									<fmt:parseDate value="${qna.askedAt }" var="resdate" pattern="yyyy-MM-dd HH:mm:ss" />
-									<fmt:formatDate value="${resdate }" pattern="yyyy년 MM월 dd일" />
-								</td>
-							</tr>
-						</c:forEach>
-						<c:if test="${empty qnaList }">
+			<h2 class="title">QNA 목록</h2>
+			<table class="table">
+				<thead>
+					<tr><th>질문번호</th><th>제목</th><th>작성자</th><th>작성일</th></tr>
+				</thead>
+				<tbody>
+					<c:forEach var="qna" items="${qList }">
 						<tr>
-							<td colspan="4">질문 및 답변이 존재하지 않습니다.</td>
+							<c:if test="${qna.qType==1 }">			<!-- 질문  -->
+								<td>${qna.qIdGroup }</td>
+								<td>
+									<a href="${path }/QnADetail.do?qId=${qna.qId }">${qna.qTitle }</a>
+								</td>
+							</c:if>
+							<c:if test="${qna.qType==2 }">			<!-- 답변  -->
+								<td><span>&nbsp;</span></td>
+								<td style="padding-left:20px; ">
+									<a href="${path }/QnADetail.do?qId=${qna.qId }">ㄴ ${qna.qTitle }</a>
+								</td>
+							</c:if>
+							<td>${qna.askedBy }</td>
+							<td>
+								<fmt:parseDate value="${qna.askedAt }" var="resdate" pattern="yyyy-MM-dd HH:mm:ss" />
+								<fmt:formatDate value="${resdate }" pattern="yyyy년 MM월 dd일" />
+							</td>
 						</tr>
-						</c:if>	
-					</tbody>
-				</table>
-				<c:if test="${!empty sid }">
-				<div class="btn-group">
-					<a href="${path }/QnaInsertQuestion.do" class="btn btn-primary">질문하기</a>
-				</div>
-				</c:if>
-			</section>
+					</c:forEach>
+					<c:if test="${empty qList }">
+					<tr>
+						<td colspan="4">질문 및 답변이 존재하지 않습니다.</td>
+					</tr>
+					</c:if>	
+				</tbody>
+			</table>
+			<c:if test="${!empty sid }">
+			<div class="buttons">
+				<a href="${path }/QnaInsertQuestion.do" class="button is-primary">질문하기</a>
+			</div>
+			</c:if>
 		</div>
-		<%@ include file="../../footer.jsp" %>
 	</div>
+<%@ include file="../../footer.jsp" %>
 </body>
 </html>

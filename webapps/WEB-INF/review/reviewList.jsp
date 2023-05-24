@@ -27,7 +27,7 @@
 						<tr><th>리뷰번로</th><th>리뷰제목</th><th>작성자아이디</th><th>작성일</th><th>평점</th></tr>
 					</thead>
 					<tbody>
-						<c:forEach var="rev" items="${reviewList }">
+						<c:forEach var="rev" items="${revList }">
 						<tr>
 							<td>${rev.reviewId }</td>
 							<td><a href="${path }/ReviewDetail.do?reviewId=${rev.reviewId }">${rev.reviewTitle }</a></td>

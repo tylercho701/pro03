@@ -1,20 +1,20 @@
 package kr.go.visitbusan.dto;
 
 public class QnA {
-	private String qid;
+	private String qId;
 	private String qTitle;
 	private String qContent;
-	private String qType;
+	private int qType;
 	private String qIdGroup;
 	private String askedAt;
 	private String askedBy;
 	private int readCnt;
 	
-	public String getQid() {
-		return qid;
+	public final String getqId() {
+		return qId;
 	}
-	public void setQid(String qid) {
-		this.qid = qid;
+	public final void setqId(String qId) {
+		this.qId = qId;
 	}
 	public String getqTitle() {
 		return qTitle;
@@ -28,10 +28,10 @@ public class QnA {
 	public void setqContent(String qContent) {
 		this.qContent = qContent;
 	}
-	public String getqType() {
+	public final int getqType() {
 		return qType;
 	}
-	public void setqType(String qType) {
+	public final void setqType(int qType) {
 		this.qType = qType;
 	}
 	public String getqIdGroup() {

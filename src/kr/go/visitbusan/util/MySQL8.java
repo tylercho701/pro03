@@ -55,7 +55,7 @@ public class MySQL8 {
 	
 	
 	// QNA
-	public final static String QNA_LIST_ALL = "select * from qna order by parno desc, qno asc";
+	public final static String QNA_LIST_ALL = "select * from qna order by qIdGroup desc, qId asc";
 	public final static String QNA_LIST_BY_QIDGROUP = "select * from qna where qIdGroup = ? order by qid asc";
 	public final static String QNA_LIST_DETAIL = "select * from qna where qid=?";
 	public final static String QNA_QUESTION_DETAIL = "select * from qna where qid=? and qIdGroup = '1'";		//신규
@@ -68,7 +68,7 @@ public class MySQL8 {
 	public final static String QNA_UPDATE_QUESTION = "update qna set qTitle = ?, qContent = ? askedAt = default where qid=?";		// 신규
 	public final static String QNA_UPDATE_ANSWER = "update qna set qTitle = ?, qContent = ? askedAt = default where qid=?";			// 신규
 	public final static String QNA_DELETE_ALL_BY_QIDGROUP = "delete from qna where qIdGroup = ?";
-	public final static String QNA_DELETE_REPLY = "delete from qna where qid = ?";
+	public final static String QNA_DELETE_REPLY = "delete from qna where qId = ?";
 	
 	
 	//visit

@@ -14,6 +14,9 @@
 <meta charset="UTF-8">
 <title>Index</title>
 <style>
+.row:after { content:""; display:block; clear:both; }
+.row li { float:left; }
+.content ul.row { width:960px; margin:10px auto; margin-left:auto; margin-right:auto; }
 </style>
 </head>
 <body>
@@ -37,6 +40,40 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<ul class="row">
+			<c:forEach var="noti" items="${notiList }">
+				<li class="column is-3">
+					 <div>${noti.noticeId }</div>
+					 <div>${noti.noticeTitle }</div>
+					 <div>${noti.noticeContent }</div>
+				</li>
+			</c:forEach>
+			</ul>
+			<%-- <c:set var="cnt" value="0" />
+				<div class="tile is-ancestor">
+					<c:forEach var="noti" items="${notiList }">
+						<c:if test="${cnt%4 != 0 }">
+						 	<div class="tile is-parent">
+						   		<article class="tile is-child box">
+						     		<p class="title">${noti.noticeId }</p>
+						     		<p class="subtitle">${noti.noticeContent }</p>
+						   		</article>
+						   		<c:set var="cnt" value="${cnt+1 }" />
+						 	</div>
+						</c:if>
+						<c:if test="${cnt%4 == 0 }">
+						</div>
+							</div>
+						<div class="tile is-ancestor">
+							<div class="tile is-parent">
+						   		<article class="tile is-child box">
+						     		<p class="title">${noti.noticeId }</p>
+						     		<p class="subtitle">${noti.noticeContent }</p>
+						   		</article>
+					   		</div>
+						</c:if>
+					</c:forEach>
+				</div> --%>
 		</div>
 	</div>
 <%@ include file="../footer.jsp" %>

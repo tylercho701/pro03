@@ -148,10 +148,10 @@
 		        <a href="${header_path }/NoticeList.do" class="navbar-item">
 				  notice관리
 		        </a>
-		        <a href="" class="navbar-item">
+		        <a href="${header_path }/ReviewList.do" class="navbar-item">
 				  review관리
 		        </a>
-		        <a href="" class="navbar-item">
+		        <a href="${header_path }/QnAList.do" class="navbar-item">
 				  QnA관리
 		        </a>
 		        <a href="" class="navbar-item">
