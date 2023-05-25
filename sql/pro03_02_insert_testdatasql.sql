@@ -85,7 +85,13 @@ update member set pw = '4D8TZ41Pmqq9ys02TS3O19/+zJmTBZ4NH/Xtj6ZRoAcJiS7iLWx4/VhW
 
 -- 파일명에 경로 추가하기
 update notice set attachment = './dataNoti/1.jpg' where writtenBy = 'admin';
+update review set img = './dataRev/1.jpg' where visitId = '1';
+update review set img = './dataRev/1.jpg' where visitId = '2';
+update review set img = './dataRev/1.jpg' where visitId = '3';
 
+update qna set qContent = '질문3입니다.
+답변이 어떻게 나오는지 궁금한데, 짧게 쓰면 안보여서
+가급적 길게 적어서 보내봅니다.' where qId = '5';
 select * from notice order by noticeId desc;
 
 select * from member;
