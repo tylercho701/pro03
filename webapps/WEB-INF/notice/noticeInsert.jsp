@@ -22,38 +22,36 @@
 	<div class="container">
 		<%@ include file="../../header.jsp" %>
 		<div class="content">
-			<section class="container-fluid">
-				<h2 class="title">공지사항 등록</h2>
-				<form action="${path }/NoticeInsertPro.do" method="post" enctype="multipart/form-data">
-					<table class="table">
-						<tbody>
-							<tr>
-								<th><label for="noticeTitle">제목</label></th>
-								<td>
-									<input type="hidden" name="writtenBy" id="writtenBy" value="${sid }">
-									<input type="text" name="noticeTitle" id="noticeTitle" maxlength="100" required autofocus>
-								</td>
-							</tr>
-							<tr>
-								<th><label for="noticeContent">내용</label></th>
-								<td>
-									<textarea cols="100" rows="10" id="noticeContent" name="noticeContent" required ></textarea>
-								</td>
-							</tr>
-							<tr>
-								<th><label for="attachment">첨부파일</label></th>
-								<td><input type="file" id="attachment" name="attachment"></td>
-							</tr>
-							<tr>
-								<td colspan="3">
-									<input type="submit" class="btn btn-primary" value="글쓰기">
-									<a href="${path }/NoticeList.do" class="btn btn-primary">글 목록</a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</form>
-			</section>
+			<h2 class="title">공지사항 등록</h2>
+			<form action="${path }/NoticeInsertPro.do" method="post" enctype="multipart/form-data">
+				<table class="table">
+					<tbody>
+						<tr>
+							<th><label for="noticeTitle">제목</label></th>
+							<td>
+								<input type="hidden" name="writtenBy" id="writtenBy" value="${sid }">
+								<input type="text" name="noticeTitle" id="noticeTitle" maxlength="100" required autofocus>
+							</td>
+						</tr>
+						<tr>
+							<th><label for="noticeContent">내용</label></th>
+							<td>
+								<textarea cols="100" rows="10" id="noticeContent" name="noticeContent" required ></textarea>
+							</td>
+						</tr>
+						<tr>
+							<th><label for="attachment">첨부파일</label></th>
+							<td><input type="file" id="attachment" name="attachment"></td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<input type="submit" class="button is-primary" value="글쓰기">
+								<a href="${path }/NoticeList.do" class="button is-info">글 목록</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
 		</div>
 		<%@ include file="../../footer.jsp" %>
 	</div>

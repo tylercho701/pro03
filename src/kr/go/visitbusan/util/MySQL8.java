@@ -30,12 +30,12 @@ public class MySQL8 {
 	public final static String MEMBER_DELETE = "delete from member where id = ?";
 	
 	
-	// MEMBER
+	// NOTICE
 	public final static String NOTICE_LIST_ALL = "select * from notice order by noticeId desc";
 	public final static String NOTICE_DETAIL = "select * from notice where noticeId = ?";
 	public final static String NOTICE_UPDATE_READCNT = "update notice set readcnt = readcnt + 1 where noticeId = ?";
 	public final static String NOTICE_INSERT = "insert into notice(noticeId, noticeTitle, noticeContent, writtenBy, attachment) values (?, ?, ?, ?, ?)";
-	public final static String NOTICE_NOTICEID_GENERATOR = "select noticeId from (select noticeId from notice order by noticeId desc) where rownum = 1";
+	public final static String NOTICE_NOTICEID_GENERATOR = "select noticeId from notice order by noticeId desc limit 1";
 	public final static String NOTICE_UPDATE_CHANGED_ATTACHMENT = "update notice set noticeTitle = ?, noticeContent = ?, attachment = ?, writtenAt = default where noticeId = ?";
 	public final static String NOTICE_UPDATE_NOT_CHANGED_ATTACHMENT = "update notice set noticeTitle = ?, noticeContent = ?, writtenAt = default where noticeId = ?";
 	public final static String NOTICE_DELETE = "delete from notice where noticeId = ?";
@@ -58,8 +58,8 @@ public class MySQL8 {
 	public final static String QNA_LIST_ALL = "select * from qna order by qIdGroup desc, qId asc";
 	public final static String QNA_LIST_BY_QIDGROUP = "select * from qna where qIdGroup = ? order by qid asc";
 	public final static String QNA_LIST_DETAIL = "select * from qna where qid=?";
-	public final static String QNA_QUESTION_DETAIL = "select * from qna where qid=? and qIdGroup = '1'";		//신규
-	public final static String QNA_ANSWER_DETAIL = "select * from qna where qid=? and qIdGroup = '1'";			//신규
+	public final static String QNA_QUESTION_DETAIL = "select * from qna where qid=? and qIdGroup = '1'";							//신규
+	public final static String QNA_ANSWER_DETAIL = "select * from qna where qid=? and qIdGroup = '1'";								//신규
 	public final static String QNA_UPDATE_READCNT = "update qna set readcnt = readcnt + 1 where qId = ?";
 	public final static String QNA_INSERT_Q = "insert into qna(qid, qTitle, qContent, qType, qIdGroup, askedBy) values (?, ?, ?, ?, ?, ?)";
 	public final static String QNA_INSERT_A = "insert into qna(qid, qTitle, qContent, qType, qIdGroup, askedBy) values (?, ?, ?, ?, ?, ?)";

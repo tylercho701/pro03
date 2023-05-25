@@ -8,6 +8,7 @@ public class Notice {
 	private String writtenBy;
 	private String attachment;
 	private int readCnt;
+	
 	public String getNoticeId() {
 		return noticeId;
 	}

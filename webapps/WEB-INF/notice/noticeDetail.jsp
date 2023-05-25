@@ -53,7 +53,7 @@
 							<th>첨부파일</th>		<!-- 첨부파일의 경로 협의 후 진행 필요 -->
 							<td>
 								<c:set var="lh" value="${fn:length(notice.attachment) }" />
-								<c:set var="download" value="${fn:substring(notice.attachment,5,lh) }" />
+								<c:set var="download" value="${fn:substring(notice.attachment,11,lh) }" />
 								<a href="${path }/${attachmentPath1 }/${attachment1 }" download>${download }</a>
 							</td>
 						</c:if>

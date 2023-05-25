@@ -50,9 +50,9 @@ public class NoticeUpdateProCtrl extends HttpServlet {
 				System.out.print("파일 업로드 실패~! / 첨부파일 없음");
 			}  // 파일이 업로드 되었을때
 			noticeId = multi.getParameter("noticeId");
-			writtenBy = multi.getParameter("author");
-			noticeTitle = multi.getParameter("title");
-			noticeContent = multi.getParameter("content");
+			writtenBy = multi.getParameter("writtenBy");
+			noticeTitle = multi.getParameter("noticeTitle");
+			noticeContent = multi.getParameter("noticeContent");
 		} catch (Exception e) {
 			System.out.print("예외 발생 : " + e);
 		}

@@ -95,11 +95,11 @@ public class NoticeDAO implements NoticeDAOInterface{
 	// Insert Notice
 	public int noticeInsert(Notice noti){
 		int cnt = 0;
-		String NoticeId = noticeIdGenerator();			//noticeId 생성 (가장 최근 noticeId + 1)
+		String noticeId = noticeIdGenerator();			//noticeId 생성 (가장 최근 noticeId + 1)
 		try {
 			conn = MySQL8.getConnection();
 			pstmt = conn.prepareStatement(MySQL8.NOTICE_INSERT);
-			pstmt.setString(1, NoticeId);
+			pstmt.setString(1, noticeId);
 			pstmt.setString(2, noti.getNoticeTitle());
 			pstmt.setString(3, noti.getNoticeContent());
 			pstmt.setString(4, noti.getWrittenBy());
@@ -118,13 +118,13 @@ public class NoticeDAO implements NoticeDAOInterface{
 	
 	// NoticeId 생성기
 	public String noticeIdGenerator(){
-		String NoticeId = "";
+		String noticeId = "";
 		try {
 			conn = MySQL8.getConnection();
 			pstmt = conn.prepareStatement(MySQL8.NOTICE_NOTICEID_GENERATOR);
 			rs = pstmt.executeQuery();
 			if(rs.next()){
-				NoticeId = rs.getString("noticeId");
+				noticeId = rs.getString("noticeId");
 			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -134,9 +134,9 @@ public class NoticeDAO implements NoticeDAOInterface{
 			MySQL8.close(conn, pstmt, rs);
 		}
 		
-		int tmp = Integer.parseInt(NoticeId) + 1;
-		NoticeId = tmp + "";
-		return NoticeId;
+		int tmp = Integer.parseInt(noticeId) + 1;
+		noticeId = tmp + "";
+		return noticeId;
 	}
 	
 	// Notice Update

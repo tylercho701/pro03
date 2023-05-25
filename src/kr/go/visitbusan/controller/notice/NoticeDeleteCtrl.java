@@ -23,11 +23,11 @@ public class NoticeDeleteCtrl extends HttpServlet {
 		if(cnt == 1){
 			msg = "공지글 삭제에 성공했습니다.";
 			request.setAttribute("msg", msg);
-			response.sendRedirect(request.getContextPath());
+			response.sendRedirect("NoticeList.do");
 		} else {
 			msg = "공지글 삭제에 실패했습니다.";
 			request.setAttribute("msg", msg);
-			response.sendRedirect(request.getContextPath());
+			response.sendRedirect("NoticeDetail.do?noticeId="+noticeId);
 		}
 	}
 }

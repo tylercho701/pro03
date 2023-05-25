@@ -46,18 +46,18 @@
 								<td>
 									<span>
 										<c:set var="lh" value="${fn:length(notice.attachment) }" />
-										<c:set var="download" value="${fn:substring(notice.attachment,5,lh) }" />
+										<c:set var="download" value="${fn:substring(notice.attachment,11,lh) }" />
 										${download }
 									</span><br>
 									<input type="radio" name="fileSel" id="fileSel1" onclick="fileCall()" checked>교체 안함<br> 
 									<input type="radio" name="fileSel" id="fileSel2" onclick="fileCall()" >교체<br>
 									<input type="file" name="attachment" id="attachment" class="button is-default">
-									<input type="hidden" name="file1" id="file2" value="${download }">
+									<input type="hidden" name="file2" id="file2" value="${download }">
 									<script>
 										function fileCall(){
 											var fileSel1 = document.getElementById("fileSel1");
 											var fileSel2 = document.getElementById("fileSel2");
-											var file1 = document.getElementById("file1");
+											var file1 = document.getElementById("attachment");
 											var file2 = document.getElementById("file2");
 											if(fileSel1.checked){
 												file1.style.display = "none";

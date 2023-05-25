@@ -83,6 +83,11 @@ update member set pw = '4D8TZ41Pmqq9ys02TS3O19/+zJmTBZ4NH/Xtj6ZRoAcJiS7iLWx4/VhW
 update member set pw = '4D8TZ41Pmqq9ys02TS3O19/+zJmTBZ4NH/Xtj6ZRoAcJiS7iLWx4/VhWvawCN6Wsm9ewvQ==' where id = 'narae';
 update member set pw = '4D8TZ41Pmqq9ys02TS3O19/+zJmTBZ4NH/Xtj6ZRoAcJiS7iLWx4/VhWvawCN6Wsm9ewvQ==' where id = 'seonjeong';
 
+-- 파일명에 경로 추가하기
+update notice set attachment = './dataNoti/1.jpg' where writtenBy = 'admin';
+
+select * from notice order by noticeId desc;
+
 select * from member;
 select * from review;
 select * from registration;
@@ -91,3 +96,5 @@ select * from poke;
 select * from notice;
 select * from category;
 select * from visit;
+
+desc notice;

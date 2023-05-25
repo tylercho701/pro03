@@ -23,8 +23,8 @@
 <meta name="og:site_name" content="project02_daiso">
 <meta name="og:title" content="project02_daiso">
 <meta name="og:description" content="project02_daiso">
-<!--  <meta name="og:url" content="">
-<meta name="og:image" content=""> -->
+<meta name="og:url" content="">
+<meta name="og:image" content="">
 
 <!-- 기본 폰트 및 초기화 로딩 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,3 +39,12 @@
 
 <!-- BULMA -->
 <link rel="stylesheet" href="${path_common }/source/bulma.css">
+
+<!-- Paging -->
+<link rel="stylesheet" href="${path }/resource/datatables.min.css">
+<script src="${path }/resource/datatables.min.js"></script>
+<script>
+$(document).ready( function () {
+	$('#tb1').DataTable();
+});
+</script>

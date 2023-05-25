@@ -22,10 +22,20 @@ public class NoticeDetailCtrl extends HttpServlet {
 		
 		NoticeService nService = new NoticeService();
 		Notice notice = nService.noticeDetail(noticeId);
-		String attachment1 = notice.getAttachment().substring(9); 
-		String attachmentPath1 = notice.getAttachment().substring(0,8);
+		String attachment = request.getParameter(notice.getAttachment());
+		if(attachment == null){
+			request.setAttribute("notice", notice);
+			
+			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/notice/noticeDetail.jsp");
+			view.forward(request, response);
+		} else {
+		String attachment1 = notice.getAttachment().substring(11); 
+		String attachmentPath1 = notice.getAttachment().substring(0,10);
 		
 		attachment1 = URLEncoder.encode(attachment1, "UTF-8");	
+		
+		System.out.println(attachment1);
+		System.out.println(attachmentPath1);
 		
 		request.setAttribute("attachment1", attachment1);
 		request.setAttribute("attachmentPath1", attachmentPath1);
@@ -33,5 +43,6 @@ public class NoticeDetailCtrl extends HttpServlet {
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/notice/noticeDetail.jsp");
 		view.forward(request, response);
+		}
 	}
 }
