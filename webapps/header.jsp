@@ -89,7 +89,7 @@
           <a href="" class="navbar-item">
 			랭킹
           </a>
-          <a href="" class="navbar-item">
+          <a href="${header_path }/QnAList.do" class="navbar-item">
             QnA
           </a>
         </div>

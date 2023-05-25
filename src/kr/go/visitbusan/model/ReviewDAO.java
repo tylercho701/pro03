@@ -198,4 +198,36 @@ public class ReviewDAO implements ReviewDAOInterface{
 		return cnt;
 	}
 	
+	public Review reviewDetail(String reviewId){
+		Review rev = new Review();
+		
+		try {
+			conn = MySQL8.getConnection();
+			pstmt = conn.prepareStatement(MySQL8.REVIEW_DETAIL);
+			pstmt.setString(1, reviewId);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				rev.setReviewId(rs.getString("reviewId"));
+				rev.setReviewTitle(rs.getString("reviewTitle"));
+				rev.setReviewContent(rs.getString("reviewContent"));
+				rev.setReviewedAt(rs.getString("reviewedAt"));
+				rev.setReviewedBy(rs.getString("reviewedBy"));
+				rev.setVisitId(rs.getString("VisitId"));
+				rev.setRegId(rs.getString("RegId"));
+				rev.setPoint(rs.getInt("point"));
+				rev.setImg(rs.getString("img"));
+				rev.setLikeCnt(rs.getInt("likeCnt"));
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e){
+			e.printStackTrace();			
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+		MySQL8.close(conn, pstmt, rs);
+		return rev;
+	}
+	
 }

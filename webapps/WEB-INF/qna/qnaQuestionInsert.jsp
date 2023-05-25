@@ -28,8 +28,7 @@
 							<tr>
 								<th><label for="qTitle">질문 제목</label></th>
 								<td>
-									<input type="hidden" name="qType" id="qType" value="1">
-									<input type="hidden" name="askedBy" id="askedBy" value="${sid }">
+									<input type="hidden" name="askedBy" id="askedBy" value="${askedBy }">
 									<input type="text" name="qTitle" id="qTitle" maxlength="100" required autofocus>
 								</td>
 							</tr>
@@ -41,8 +40,8 @@
 							</tr>
 							<tr>
 								<td colspan="2">
-									<input type="submit" value="글쓰기" class="btn btn-primary">
-									<a href="${path }/QnaList.do" class="btn btn-primary">QNA 목록</a>				
+									<input type="submit" value="글쓰기" class="button is-primary">
+									<a href="${path }/QnaList.do" class="button is-info">QNA 목록</a>				
 								</td>
 							</tr>
 						</tbody>

@@ -17,48 +17,46 @@
 </style>
 </head>
 <body>
-	<div class="container">
-		<%@ include file="../../header.jsp" %>
-		<div class="content">
-			<div class="container-fluid">
-				<h2>QNA 상세보기</h2>
-				<form action="${path }/QnaUpdateAnswerPro.do" method="post">
-					<table class="table">
-						<tbody>
-							<tr>
-								<th>QNA 유형</th>
-								<td>
-									<c:if test="${qna.qType == 1 }">
-										질문(Question)
-									</c:if>
-									<c:if test="${qna.qType == 2 }">
-										답변(Answer)
-									</c:if>
-									<input type="hidden" name="qid" id="qid" value="${qna.qid }">
-								</td>
-							</tr>
-							<tr>
-								<th>제목</th>
-								<td>${qna.qTitle }</td>
-							</tr>
-							<tr>
-								<th>내용</th>
-								<td>
-									<textarea rows="10" cols="100" name="content" id="content" maxlength="990" title="1000자 내로 작성" class="form-control">${qna.qContent }</textarea>
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2">
-									<input type="submit" value="답변 수정" class="button is-info">
-									<a href="${path }/QnAList.do" class="button is-default">글 목록</a>				
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</form>		
-			</div>
+<%@ include file="../../header.jsp" %>
+<div class="container">	
+	<div class="content">
+		<div class="container-fluid">
+			<h2>QNA 상세보기</h2>
+			<table class="table">
+				<tbody>
+					<tr>
+						<th>QNA 유형</th>
+						<td>
+							<c:if test="${qna.qType == 1 }">
+								질문(Question)
+							</c:if>
+							<c:if test="${qna.qType == 2 }">
+								답변(Answer)
+							</c:if>
+							<input type="hidden" name="qid" id="qid" value="${qna.qId }">
+						</td>
+					</tr>
+					<tr>
+						<th>제목</th>
+						<td>${qna.qTitle }</td>
+					</tr>
+					<tr>
+						<th>내용</th>
+						<td>
+							${qna.qContent }
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="submit" value="답변 수정" class="button is-info">
+							<a href="${path }/QnAList.do" class="button is-default">글 목록</a>				
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-		<%@ include file="../../footer.jsp" %>
 	</div>
+</div>
+<%@ include file="../../footer.jsp" %>
 </body>
 </html>

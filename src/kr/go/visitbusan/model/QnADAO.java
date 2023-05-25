@@ -27,7 +27,7 @@ public class QnADAO implements QnADAOInterface {
 				qna.setqId(rs.getString("qId"));
 				qna.setqTitle(rs.getString("qTitle"));
 				qna.setqContent(rs.getString("qContent"));
-				qna.setqType(Integer.parseInt(rs.getString("qType")));
+				qna.setqType(rs.getInt("qType"));
 				qna.setqIdGroup(rs.getString("qIdGroup"));
 				qna.setAskedAt(rs.getString("askedAt"));
 				qna.setAskedBy(rs.getString("askedBy"));

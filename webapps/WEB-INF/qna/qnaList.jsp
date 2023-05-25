@@ -58,7 +58,7 @@
 			</table>
 			<c:if test="${!empty sid }">
 			<div class="buttons">
-				<a href="${path }/QnaInsertQuestion.do" class="button is-primary">질문하기</a>
+				<a href="${path }/QnaInsertQuestion.do?askedBy=${sid }" class="button is-primary">질문하기</a>
 			</div>
 			</c:if>
 		</div>

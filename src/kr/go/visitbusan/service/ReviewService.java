@@ -37,4 +37,8 @@ public class ReviewService {
 		int cnt = dao.reviewDelete(reviewId);
 		return cnt;
 	}
+	public Review reviewDetail(String reviewId){
+		Review rev = dao.reviewDetail(reviewId);
+		return rev;
+	}
 }

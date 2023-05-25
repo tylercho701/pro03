@@ -12,4 +12,5 @@ public interface ReviewDAOInterface {
 	public Review reviewUpdate(String reviewId);
 	public int reviewUpdatePro(Review rev);
 	public int reviewDelete(String reviewId);
+	public Review reviewDetail(String reviewId);
 }
