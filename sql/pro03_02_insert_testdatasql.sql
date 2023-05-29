@@ -94,6 +94,10 @@ update qna set qContent = '질문3입니다.
 가급적 길게 적어서 보내봅니다.' where qId = '5';
 select * from notice order by noticeId desc;
 
+select * from qna where qIdGroup = '7' and qType = 2 order by qid asc;
+
+select * from qna where qIdGroup = '7' order by qid asc;
+
 select * from member;
 select * from review;
 select * from registration;
@@ -103,4 +107,7 @@ select * from notice;
 select * from category;
 select * from visit;
 
-desc notice;
+desc qna;
+
+alter table qna modify askedAt timestamp default current_timestamp on update current_timestamp;
+commit;

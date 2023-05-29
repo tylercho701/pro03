@@ -58,11 +58,11 @@
 						<tr>
 							<td colspan="2">
 								<c:if test="${review.reviewedBy == sid }">
-									<a href="${path }/ReviewUpdate.do?rnum=${review.reviewId}" class="button is-primary">구매 후기 수정</a>
-									<a href="${path }/ReviewDelete.do?rnum=${review.reviewId}" class="button is-danger">구매 후기 삭제</a>
+									<a href="${path }/ReviewUpdate.do?reviewId=${review.reviewId}" class="button is-primary">여행 후기 수정</a>
+									<a href="${path }/ReviewDeletePro.do?reviewId=${review.reviewId}" class="button is-danger">여행 후기 삭제</a>
 								</c:if>
 								<c:if test="${sid == 'admin' }">
-									<a href="${path }/ReviewDelete.do?rnum=${review.reviewId}" class="button is-danger">구매 후기 삭제</a>
+									<a href="${path }/ReviewDeletePro.do?reviewId=${review.reviewId}" class="button is-danger">여행 후기 삭제</a>
 								</c:if>
 								<a href="javascript:history.go(-1)" class="button is-warning">뒤로가기</a>
 							</td>

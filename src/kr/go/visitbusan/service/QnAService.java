@@ -29,7 +29,7 @@ public class QnAService {
 		return cnt;
 	}
 	public int qnAInsertA(QnA qna){
-		int cnt = qnAInsertA(qna);
+		int cnt = dao.qnAInsertA(qna);
 		return cnt;
 	}
 	public String qIdGenerator(){
@@ -41,15 +41,23 @@ public class QnAService {
 		return qna;
 	}
 	public int qnAUpdatePro(QnA qna){
-		int cnt = qnAUpdatePro(qna);
+		int cnt = dao.qnAUpdatePro(qna);
 		return cnt;
 	}
 	public int qnADeleteByQIdGroup(String qIdGroup){
-		int cnt = qnADeleteByQIdGroup(qIdGroup);
+		int cnt = dao.qnADeleteByQIdGroup(qIdGroup);
 		return cnt;
 	}
 	public int qnADeleteOnlyAnswer(String qId){
-		int cnt = qnADeleteOnlyAnswer(qId);
+		int cnt = dao.qnADeleteOnlyAnswer(qId);
 		return cnt;
+	}
+	public ArrayList<QnA> qnAAnsweredListByQIdGroup(String qIdGroup){
+		ArrayList<QnA> qList = dao.qnAAnsweredListByQIdGroup(qIdGroup);
+		return qList;
+	}
+	public ArrayList<QnA> qnAQuestionListByQIdGroup(String qIdGroup){
+		ArrayList<QnA> qList = dao.qnAQuestionListByQIdGroup(qIdGroup);
+		return qList;
 	}
 }

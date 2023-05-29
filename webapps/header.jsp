@@ -89,7 +89,7 @@
           <a href="" class="navbar-item">
 			랭킹
           </a>
-          <a href="${header_path }/QnAList.do" class="navbar-item">
+          <a href="${header_path }/QnaList.do" class="navbar-item">
             QnA
           </a>
         </div>
@@ -151,7 +151,7 @@
 		        <a href="${header_path }/ReviewList.do" class="navbar-item">
 				  review관리
 		        </a>
-		        <a href="${header_path }/QnAList.do" class="navbar-item">
+		        <a href="${header_path }/QnaList.do" class="navbar-item">
 				  QnA관리
 		        </a>
 		        <a href="" class="navbar-item">

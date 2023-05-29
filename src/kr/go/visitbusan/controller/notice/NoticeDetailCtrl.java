@@ -23,12 +23,13 @@ public class NoticeDetailCtrl extends HttpServlet {
 		NoticeService nService = new NoticeService();
 		Notice notice = nService.noticeDetail(noticeId);
 		String attachment = request.getParameter(notice.getAttachment());
-		if(attachment == null){
+		/*if(attachment == null){
 			request.setAttribute("notice", notice);
 			
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/notice/noticeDetail.jsp");
 			view.forward(request, response);
 		} else {
+		*/
 		String attachment1 = notice.getAttachment().substring(11); 
 		String attachmentPath1 = notice.getAttachment().substring(0,10);
 		
@@ -45,4 +46,3 @@ public class NoticeDetailCtrl extends HttpServlet {
 		view.forward(request, response);
 		}
 	}
-}

@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import kr.go.visitbusan.dto.QnA;
 import kr.go.visitbusan.service.QnAService;
 
-@WebServlet("/QnaInsertQuestionPro.do")
-public class QnaInsertQuestionProCtrl extends HttpServlet {
+@WebServlet("/QnaInsertAnswerPro.do")
+public class QnaInsertAnswerProCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,13 +24,13 @@ public class QnaInsertQuestionProCtrl extends HttpServlet {
 		
 		qna.setqTitle(request.getParameter("qTitle"));
 		qna.setqContent(request.getParameter("qContent"));
-		qna.setAskedBy(request.getParameter("askedBy"));
+		qna.setqIdGroup(request.getParameter("qIdGroup"));
 		
-		int cnt = qService.qnAInsertQ(qna);
+		int cnt = qService.qnAInsertA(qna);
 		
 		if(cnt == 0){
 			System.out.println("질문 등록 실패");
-			response.sendRedirect("QnaInsertQuestion.do?askedBy="+qna.getAskedBy());
+			response.sendRedirect("QnAInsertQuestion.do?qId="+request.getParameter("qIdGroup"));
 		} else {
 			System.out.println("질문 등록 성공");
 			response.sendRedirect("QnaList.do");

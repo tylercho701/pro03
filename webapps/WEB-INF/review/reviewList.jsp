@@ -39,7 +39,7 @@
 							<td>${rev.point }</td>
 						</tr>
 						</c:forEach>
-						<c:if test="${empty reviewList }">
+						<c:if test="${empty revList }">
 							<tr>
 								<td colspan="5">공지사항이 존재하지 않습니다.</td>
 							</tr>
@@ -47,7 +47,7 @@
 					</tbody>
 				</table>
 				<div class="btn btn-group">			<!-- 리뷰 목록은 어떻게 구현할지 디테일한 의논 후 결정 필요 -->
-					<a href="${path }/ReviewInsert.do" class="btn btn-primary">글 등록</a>
+					<a href="${path }/ReviewInsert.do" class="button is-primary">글 등록</a>
 				</div>
 			</section>
 		</div>

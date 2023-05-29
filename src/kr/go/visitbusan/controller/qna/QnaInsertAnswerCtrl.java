@@ -1,7 +1,6 @@
 package kr.go.visitbusan.controller.qna;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,19 +12,20 @@ import javax.servlet.http.HttpServletResponse;
 import kr.go.visitbusan.dto.QnA;
 import kr.go.visitbusan.service.QnAService;
 
-@WebServlet("/QnAList.do")
-public class QnAListCtrl extends HttpServlet {
+@WebServlet("/QnaInsertAnswer.do")
+public class QnaInsertAnswerCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<QnA> qList = new ArrayList<>();
+		String qId = request.getParameter("qId");
 		QnAService qService = new QnAService();
 		
-		qList = qService.qnAListAll();
+		QnA qna = new QnA();
+		qna = qService.qnADetail(qId);
 		
-		request.setAttribute("qList", qList);
+		request.setAttribute("qna", qna);
 		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/qna/qnaList.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/qna/qnaInsertAnswer.jsp");
 		view.forward(request, response);
 	}
 }

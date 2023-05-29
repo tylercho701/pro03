@@ -12,21 +12,20 @@ import javax.servlet.http.HttpServletResponse;
 import kr.go.visitbusan.dto.QnA;
 import kr.go.visitbusan.service.QnAService;
 
-@WebServlet("/QnADetail.do")
-public class QnADetailCtrl extends HttpServlet {
+@WebServlet("/QnaUpdateQuestion.do")
+public class QnaUpdateQuestionCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String qId = request.getParameter("qId");
-		
-		QnAService qService = new QnAService();
 		QnA qna = new QnA();
+		QnAService qService = new QnAService();
 		
 		qna = qService.qnADetail(qId);
 		
 		request.setAttribute("qna", qna);
 		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/qna/qnaDetail.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/qna/qnaUpdateQuestion.jsp");
 		view.forward(request, response);
 	}
 }

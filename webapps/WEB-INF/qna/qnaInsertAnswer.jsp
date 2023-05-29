@@ -22,23 +22,19 @@
 		<div class="content">
 			<section class="container-fluid">
 				<h2>답변 작성</h2>
-				<form action="${path }/QnaInsertQuestionPro.do" method="post">
+				<form action="${path }/QnaInsertAnswerPro.do" method="post">
 					<table class="table">
 						<tbody>
 							<tr>
 								<th><label for="qTitle">답변 제목</label></th>
 								<td>
-									<input type="hidden" name="qType" id="qType" value="2">
 									<input type="hidden" name="qIdGroup" id="qIdGroup" value="${qna.qIdGroup }">
-									<input type="hidden" name="askedBy" id="askedBy" value="${sid }">
 									<input type="text" name="qTitle" id="qTitle" maxlength="100" value="[답변] ${qna.qTitle }" required autofocus>
 								</td>
 							</tr>
 							<tr>
-								<th><label for="qContent">질문 내용</label><th>
-								<td>
-									<p>${qna.qContent }</p>
-								</td>
+								<th>질문 내용</th>
+								<td>${qna.qContent }</td>
 							</tr>
 							<tr>
 								<th><label for="qContent">답변 내용</label></th>
@@ -48,8 +44,8 @@
 							</tr>
 							<tr>
 								<td colspan="2">
-									<input type="submit" value="글쓰기" class="btn btn-primary">
-									<a href="${path }/QnaList.do" class="btn btn-primary">QNA 목록</a>				
+									<input type="submit" value="답변 등록" class="button is-primary">
+									<a href="${path }/QnaDetail.do?qId=${qna.qId }" class="button is-info">이전으로</a>				
 								</td>
 							</tr>
 						</tbody>

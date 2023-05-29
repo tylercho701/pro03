@@ -36,8 +36,8 @@ public class MySQL8 {
 	public final static String NOTICE_UPDATE_READCNT = "update notice set readcnt = readcnt + 1 where noticeId = ?";
 	public final static String NOTICE_INSERT = "insert into notice(noticeId, noticeTitle, noticeContent, writtenBy, attachment) values (?, ?, ?, ?, ?)";
 	public final static String NOTICE_NOTICEID_GENERATOR = "select noticeId from notice order by noticeId desc limit 1";
-	public final static String NOTICE_UPDATE_CHANGED_ATTACHMENT = "update notice set noticeTitle = ?, noticeContent = ?, attachment = ?, writtenAt = default where noticeId = ?";
-	public final static String NOTICE_UPDATE_NOT_CHANGED_ATTACHMENT = "update notice set noticeTitle = ?, noticeContent = ?, writtenAt = default where noticeId = ?";
+	public final static String NOTICE_UPDATE_CHANGED_ATTACHMENT = "update notice set noticeTitle = ?, noticeContent = ?, attachment = ? where noticeId = ?";
+	public final static String NOTICE_UPDATE_NOT_CHANGED_ATTACHMENT = "update notice set noticeTitle = ?, noticeContent = ? where noticeId = ?";
 	public final static String NOTICE_DELETE = "delete from notice where noticeId = ?";
 	
 	
@@ -49,14 +49,16 @@ public class MySQL8 {
 	public final static String REVIEW_UPDATE_LIKECNT = "update review set likecnt = likecnt + 1 where reviewId = ?";
 	public final static String REVIEW_INSERT = "insert into review(reviewId, reviewTitle, reviewContent, reviewedBy, visitId, point, img) values (?, ?, ?, ?, ?, ?, ?)";
 	public final static String REVIEW_REVIEWID_GENERATOR = "select reviewId from review order by reviewId desc limit 1";
-	public final static String REVIEW_UPDATE_CHANGED_IMG = "update review set reviewTitle = ?, reviewContent = ?, writtenAt = default, img = ? where reviewId = ?";
-	public final static String REVIEW_UPDATE_NOT_CHANGED_IMG = "update review set reviewTitle = ?, reviewContent = ?, writtenAt = default, where reviewId = ?";
+	public final static String REVIEW_UPDATE_CHANGED_IMG = "update review set reviewTitle = ?, reviewContent = ? img = ? where reviewId = ?";
+	public final static String REVIEW_UPDATE_NOT_CHANGED_IMG = "update review set reviewTitle = ?, reviewContent = ? where reviewId = ?";
 	public final static String REVIEW_DELETE = "delete from review where reviewId = ?";
 	
 	
 	// QNA
 	public final static String QNA_LIST_ALL = "select * from qna order by qIdGroup desc, qId asc";
 	public final static String QNA_LIST_BY_QIDGROUP = "select * from qna where qIdGroup = ? order by qid asc";
+	public final static String QNA_LIST_FORANSWER_BY_QIDGROUP = "select * from qna where qIdGroup = ? and qType = 2 order by qid asc";
+	public final static String QNA_LIST_FORQUESTION_BY_QIDGROUP = "select * from qna where qIdGroup = ? and qType = 1 order by qid asc";
 	public final static String QNA_LIST_DETAIL = "select * from qna where qid=?";
 	public final static String QNA_QUESTION_DETAIL = "select * from qna where qid=? and qIdGroup = '1'";							//신규
 	public final static String QNA_ANSWER_DETAIL = "select * from qna where qid=? and qIdGroup = '1'";								//신규
@@ -64,9 +66,9 @@ public class MySQL8 {
 	public final static String QNA_INSERT_Q = "insert into qna(qid, qTitle, qContent, qType, qIdGroup, askedBy) values (?, ?, ?, ?, ?, ?)";
 	public final static String QNA_INSERT_A = "insert into qna(qid, qTitle, qContent, qType, qIdGroup, askedBy) values (?, ?, ?, ?, ?, ?)";
 	public final static String QNA_QID_GENERATOR = "select qid from qna order by qid desc limit 1";
-	public final static String QNA_UPDATE = "update qna set qTitle = ?, qContent = ? askedAt = default where qid=?";				// QNA 수정을 Q와 A로 나눌지 의견 청취 필요
-	public final static String QNA_UPDATE_QUESTION = "update qna set qTitle = ?, qContent = ? askedAt = default where qid=?";		// 신규
-	public final static String QNA_UPDATE_ANSWER = "update qna set qTitle = ?, qContent = ? askedAt = default where qid=?";			// 신규
+	public final static String QNA_UPDATE = "update qna set qTitle = ?, qContent = ? where qid = ?";				// QNA 수정을 Q와 A로 나눌지 의견 청취 필요
+	public final static String QNA_UPDATE_QUESTION = "update qna set qTitle = ?, qContent = ? where qid = ?";		// 신규
+	public final static String QNA_UPDATE_ANSWER = "update qna set qTitle = ?, qContent = ? where qid=?";			// 신규
 	public final static String QNA_DELETE_ALL_BY_QIDGROUP = "delete from qna where qIdGroup = ?";
 	public final static String QNA_DELETE_REPLY = "delete from qna where qId = ?";
 	

@@ -33,13 +33,13 @@
 							<c:if test="${qna.qType==1 }">			<!-- 질문  -->
 								<td>${qna.qIdGroup }</td>
 								<td>
-									<a href="${path }/QnADetail.do?qId=${qna.qId }">${qna.qTitle }</a>
+									<a href="${path }/QnaDetail.do?qId=${qna.qId }">${qna.qTitle }</a>
 								</td>
 							</c:if>
 							<c:if test="${qna.qType==2 }">			<!-- 답변  -->
 								<td><span>&nbsp;</span></td>
 								<td style="padding-left:20px; ">
-									<a href="${path }/QnADetail.do?qId=${qna.qId }">ㄴ ${qna.qTitle }</a>
+									<a href="${path }/QnaDetail.do?qId=${qna.qId }">ㄴ ${qna.qTitle }</a>
 								</td>
 							</c:if>
 							<td>${qna.askedBy }</td>

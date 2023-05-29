@@ -9,17 +9,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/QnaInsertQuestion.do")
-public class QnaInsertQuestionCtrl extends HttpServlet {
+import kr.go.visitbusan.dto.QnA;
+import kr.go.visitbusan.service.QnAService;
+
+@WebServlet("/QnaUpdateAnswer.do")
+public class QnaUpdateAnswerCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String askedBy = request.getParameter("askedBy");
-		System.out.println(askedBy);
+		String qId = request.getParameter("qId");
+		QnA qna = new QnA();
+		QnAService qService = new QnAService();
 		
-		request.setAttribute("askedBy", askedBy);
+		qna = qService.qnADetail(qId);
 		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/qna/qnaInsertQuestion.jsp");
+		request.setAttribute("qna", qna);
+		
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/qna/qnaUpdateAnswer.jsp");
 		view.forward(request, response);
 	}
 }

@@ -18,67 +18,39 @@
 </style>
 </head>
 <body>
-	<div class="container">
-		<%@ include file="../../header.jsp" %>
-		<div class="content">
-			<section class="container-fluid">
-				<h2>질문 글 수정</h2>
-				<form action="${path }/QnaUpdateQuestionPro.do" method="post" enctype="multipart/form-data">
-					<table class="table">
-						<tbody>
-							<tr>
-								<th><label for="qTitle">질문 제목</label></th>
-								<td>
-									<input type="hidden" name="writtenBy" id="writtenBy" value="${sid }">
-									<input type="hidden" name="qid" id="qid" value="${qna.qid }">
-									<input type="text" name="title" id="title" value="${qn.qTitle }" maxlength="98" title="100자 내로 작성" placeholder="100자 내로 작성" class="form-control" required autofocus>
-								</td>
-							</tr>
-							<tr>
-								<th><label for="content">질문 내용</label></th>
-								<td>
-									<textarea rows="10" cols="100" name="content" id="content" maxlength="990" title="1000자 내로 작성" class="form-control">${qn.qContent }</textarea>
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2">
-									<input type="submit" value="질문 수정" class="btn btn-primary">
-									<a href="${path }/QnaList.do" class="btn btn-primary">QNA 목록</a>				
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</form>
-				<hr>
-				<h3>답글 보기</h3>
+<%@ include file="../../header.jsp" %>
+<div class="container">	
+	<div class="content">
+		<div class="container-fluid">
+			<h2>질문 글 수정</h2>
+			<form action="${path }/QnaUpdateQuestionPro.do" method="post">
 				<table class="table">
-					<thead>
-						<tr><th>연번</th><th>답변 제목</th><th>작성자</th><th>작성일</th></tr>
-					</thead>
 					<tbody>
-						<c:forEach var="qna" items="${qnaList }">
 						<tr>
-							<td>${qna.qId }</td>
+							<th><label for="qTitle">질문 제목</label></th>
 							<td>
-								<a href="${path }/QnAAnswerDetail.do?qid=${qna.qId }">${qna.qTitle }</a>
-							</td>
-							<td>${qna.askedBy }</td>
-							<td>
-								<fmt:parseDate value="${qna.askedAt }" var="resdate" pattern="yyyy-MM-dd HH:mm:ss" />
-								<fmt:formatDate value="${resdate }" pattern="yyyy년 MM월 dd일" />
+								<input type="hidden" name="qId" id="qId" value="${qna.qId }">
+								<input type="text" name="qTitle" id="qTitle" value="${qna.qTitle }" maxlength="98" required>
 							</td>
 						</tr>
-						</c:forEach>
-						<c:if test="${empty qnaList }">
 						<tr>
-							<td colspan="4">답변 목록이 존재하지 않습니다.</td>
+							<th><label for="qContent">질문 내용</label></th>
+							<td>
+								<textarea rows="10" cols="100" name="qContent" id="qContent" maxlength="990">${qna.qContent }</textarea>
+							</td>
 						</tr>
-						</c:if>	
+						<tr>
+							<td colspan="2">
+								<input type="submit" value="질문 수정" class="button is-primary">
+								<a href="javascript:history.go(-1)" class="button is-info">이전으로</a>				
+							</td>
+						</tr>
 					</tbody>
 				</table>
-			</section>
+			</form>
 		</div>
-		<%@ include file="../../footer.jsp" %>
 	</div>
+</div>
+<%@ include file="../../footer.jsp" %>
 </body>
 </html>

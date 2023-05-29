@@ -11,29 +11,31 @@ import javax.servlet.http.HttpServletResponse;
 import kr.go.visitbusan.dto.QnA;
 import kr.go.visitbusan.service.QnAService;
 
-@WebServlet("/QnaInsertQuestionPro.do")
-public class QnaInsertQuestionProCtrl extends HttpServlet {
+@WebServlet("/QnaUpdateAnswerPro.do")
+public class QnaUpdateAnswerProCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
+		String qId = request.getParameter("qId");
+		
 		QnA qna = new QnA();
 		QnAService qService = new QnAService();
 		
 		qna.setqTitle(request.getParameter("qTitle"));
 		qna.setqContent(request.getParameter("qContent"));
-		qna.setAskedBy(request.getParameter("askedBy"));
+		qna.setqId(request.getParameter("qId"));
 		
-		int cnt = qService.qnAInsertQ(qna);
+		int cnt = qService.qnAUpdatePro(qna);
 		
 		if(cnt == 0){
-			System.out.println("질문 등록 실패");
-			response.sendRedirect("QnaInsertQuestion.do?askedBy="+qna.getAskedBy());
+			System.out.println("답변 수정 실패");
+			response.sendRedirect("QnaDetail.do?qId="+qId);
 		} else {
-			System.out.println("질문 등록 성공");
-			response.sendRedirect("QnaList.do");
+			System.out.println("답변 수정 성공");
+			response.sendRedirect("QnaDetail.do?qId="+qId);
 		}
 		
 		

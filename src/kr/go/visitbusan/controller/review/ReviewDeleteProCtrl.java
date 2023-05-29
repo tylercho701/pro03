@@ -23,11 +23,11 @@ public class ReviewDeleteProCtrl extends HttpServlet {
 		if(cnt==0){
 			System.out.println("여행 후기 삭제에 실패했습니다.");
 			
-			response.sendRedirect(request.getContextPath());
+			response.sendRedirect("reviewList.do");
 		} else {
 			System.out.println("여행 후기 삭제에 성공했습니다.");
 			
-			response.sendRedirect(request.getContextPath());
+			response.sendRedirect("ReviewList.do");
 		}
 	}
 }

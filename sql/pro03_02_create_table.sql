@@ -27,6 +27,7 @@ create table notice(
     readCnt int default 0,
     foreign key(writtenBy) references member(id)
 );
+alter table notice modify writtenAt timestamp default current_timestamp on update current_timestamp;
 
 -- 카테고리
 create table category(	
@@ -62,6 +63,7 @@ create table review(
     foreign key(reviewedBy) references member(id),
     foreign key(visitId) references visit(visitId)
 );
+alter table review modify reviewedAt timestamp default current_timestamp on update current_timestamp;
 
 -- poke 테이블
 create table poke
@@ -97,3 +99,5 @@ create table registration
              constraint foreign key (visitId) references visit(visitId));
              
 select noticeId from (select noticeId from notice order by noticeId desc) where rownum = 1;
+
+commit;
