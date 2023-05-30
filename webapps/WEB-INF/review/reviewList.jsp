@@ -22,7 +22,7 @@
 		<div class="content">
 			<section>
 				<h2 class="title">리뷰 목록</h2>
-				<table class="table">
+				<table class="table" id="tb1">
 					<thead>
 						<tr><th>리뷰번로</th><th>리뷰제목</th><th>작성자아이디</th><th>작성일</th><th>평점</th></tr>
 					</thead>

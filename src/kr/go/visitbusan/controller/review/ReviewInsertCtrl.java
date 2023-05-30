@@ -17,7 +17,7 @@ public class ReviewInsertCtrl extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/notice/noticeInsert.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/review/reviewInsert.jsp");
 		view.forward(request, response);
 	}
 }
