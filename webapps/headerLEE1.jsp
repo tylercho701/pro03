@@ -27,32 +27,71 @@
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">여행</a>
-		<div class="navbar-dropdown cate" id="cate01">
-		
+        <a class="navbar-link">
+		  여행
+        </a>
+        
+		<div class="navbar-dropdown">
+          <a href="" class="navbar-item">
+			테마여행
+          </a>
+          <a href="" class="navbar-item">
+			미식여행
+          </a>
         </div>
       </div>
       
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">공연</a>
-		<div class="navbar-dropdown cate" id="cate02">
-		
+        <a class="navbar-link">
+		  공연
+        </a>
+        
+		<div class="navbar-dropdown">
+          <a href="" class="navbar-item">
+			야구
+          </a>
+          <a href="" class="navbar-item">
+			국제영화제
+          </a>
         </div>
       </div>
       
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">축제</a>
-		<div class="navbar-dropdown cate" id="cate03">
-		
+        <a class="navbar-link">
+		  축제
+        </a>
+        
+		<div class="navbar-dropdown">
+          <a href="" class="navbar-item">
+			봄
+          </a>
+          <a href="" class="navbar-item">
+			여름
+          </a>
+          <a href="" class="navbar-item">
+			가을
+          </a>
+          <a href="" class="navbar-item">
+			겨울
+          </a>
         </div>
       </div>
 
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">유용한정보</a>
+        <a class="navbar-link">
+		  유용한정보
+        </a>
+
         <div class="navbar-dropdown">
-          <a href="" class="navbar-item">공지사항</a>
-          <a href="" class="navbar-item">랭킹</a>
-          <a href="" class="navbar-item">QnA</a>
+          <a href="${header_path }/NoticeList.do" class="navbar-item">
+			공지사항
+          </a>
+          <a href="" class="navbar-item">
+			랭킹
+          </a>
+          <a href="${header_path }/QnaList.do" class="navbar-item">
+            QnA
+          </a>
         </div>
       </div>
     </div>
@@ -72,21 +111,18 @@
         
 	    <c:if test="${!empty sid && !sid.equals('admin')}">
 		    <div class="navbar-item has-dropdown is-hoverable">
-		      <a class="navbar-link">
-			      ${sid }님의 정보
+		      <a class="navbar-link" href="${header_path }/MemberMyPage.do?id=<%=sid %>">
+			        마이페이지
 		      </a>
 		        
 			  <div class="navbar-dropdown">
-			    <a href="${header_path }/MemberMyPage.do" class="navbar-item">
-				    마이페이지
-		        </a>
-		        <a href="${header_path }/PokeListbyMemberId.do?sid=${sid }" class="navbar-item">
+		        <a href="" class="navbar-item">
 				    찜목록보기
 		        </a>
-		        <a href="${header_path }/RegiListbyMemberId.do?sid=${sid }" class="navbar-item">
+		        <a href="" class="navbar-item">
 				    여행목록
 		        </a>
-		        <a href="${header_path }/" class="navbar-item">
+		        <a href="" class="navbar-item">
 				    내 질문 보기
 		        </a>
 		      </div>
@@ -106,22 +142,22 @@
 		      </a>
 		        
 			  <div class="navbar-dropdown">
-		        <a href="${header_path }/" class="navbar-item">
+		        <a href="${header_path }/MemberList.do" class="navbar-item">
 				    멤버관리
 		        </a>
-		        <a href="${header_path }/" class="navbar-item">
+		        <a href="${header_path }/NoticeList.do" class="navbar-item">
 				  notice관리
 		        </a>
-		        <a href="${header_path }/" class="navbar-item">
+		        <a href="${header_path }/ReviewList.do" class="navbar-item">
 				  review관리
 		        </a>
-		        <a href="${header_path }/" class="navbar-item">
+		        <a href="${header_path }/QnaList.do" class="navbar-item">
 				  QnA관리
 		        </a>
-		        <a href="${header_path }/VisitCtrl.do" class="navbar-item">
+		        <a href="" class="navbar-item">
 				  visit관리
 		        </a>
-		        <a href="${header_path }/" class="navbar-item">
+		        <a href="" class="navbar-item">
 				  regi관리
 		        </a>
 		      </div>
@@ -137,31 +173,4 @@
     </div>
   </div>
 </nav>
-<script>
-	$(document).ready(function(){
-		$.ajax({
-			url:"${header_path }/MenuLoad.do",
-			type:"post",
-			enctype:"UTF-8",
-			processData:false,
-			contentType:"application/json",
-			cache:false,
-			success:function(obj){
-				//console.log(obj);
-				$(".navbar-dropdown.cate").empty();
-				$.each(obj, function(key, value){
-					for (var i=0;i<value.length;i++){
-						if(value[i].cateGroup == "여행"){
-							$("#cate01").append("<a href='${header_path }/VisitListbyCateCode.do?cateCode="+value[i].cateCode+"' class='navbar-item'>"+value[i].cateName+"</a>");	
-						} else if(value[i].cateGroup == "공연"){
-							$("#cate02").append("<a href='${header_path }/VisitListbyCateCode.do?cateCode="+value[i].cateCode+"' class='navbar-item'>"+value[i].cateName+"</a>");
-						} else if(value[i].cateGroup == "축제"){
-							$("#cate03").append("<a href='${header_path }/VisitListbyCateCode.do?cateCode="+value[i].cateCode+"' class='navbar-item'>"+value[i].cateName+"</a>");
-						}
-					}
-				});
-			}
-		})
-	})
-</script>
 </header>

@@ -1,10 +1,11 @@
-package kr.go.visitbusan.dto;
+package kr.go.visitbusan.vo;
 
-
-public class Registration {
+public class RegistrationVO {
 	private String regId;
-	private String registeredBy;
 	private String visitId;
+	private String registeredBy;
+	private String visitTitle;
+	private String visitAddr;
 	private String regDate;
 	private String tourDate;
 	private String rStatus;
@@ -15,17 +16,29 @@ public class Registration {
 	public void setRegId(String regId) {
 		this.regId = regId;
 	}
+	public String getVisitId() {
+		return visitId;
+	}
+	public void setVisitId(String visitId) {
+		this.visitId = visitId;
+	}
 	public String getRegisteredBy() {
 		return registeredBy;
 	}
 	public void setRegisteredBy(String registeredBy) {
 		this.registeredBy = registeredBy;
 	}
-	public String getVisitId() {
-		return visitId;
+	public String getVisitTitle() {
+		return visitTitle;
 	}
-	public void setVisitId(String visitId) {
-		this.visitId = visitId;
+	public void setVisitTitle(String visitTitle) {
+		this.visitTitle = visitTitle;
+	}
+	public String getVisitAddr() {
+		return visitAddr;
+	}
+	public void setVisitAddr(String visitAddr) {
+		this.visitAddr = visitAddr;
 	}
 	public String getRegDate() {
 		return regDate;
@@ -45,5 +58,4 @@ public class Registration {
 	public void setrStatus(String rStatus) {
 		this.rStatus = rStatus;
 	}
-	
 }

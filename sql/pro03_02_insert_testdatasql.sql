@@ -110,4 +110,7 @@ select * from visit;
 desc qna;
 
 alter table qna modify askedAt timestamp default current_timestamp on update current_timestamp;
+alter table review modify reviewedAt timestamp default current_timestamp on update current_timestamp;
+
+select * from review order by reviewId desc;
 commit;

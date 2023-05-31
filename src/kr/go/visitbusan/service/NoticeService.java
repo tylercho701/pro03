@@ -6,7 +6,6 @@ import kr.go.visitbusan.dto.Notice;
 import kr.go.visitbusan.model.NoticeDAOInterface;
 import kr.go.visitbusan.model.NoticeDAO;
 
-
 public class NoticeService {
 
 	NoticeDAOInterface dao = new NoticeDAO();

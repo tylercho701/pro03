@@ -5,9 +5,11 @@ public class Visit {
 	private String visitTitle;
 	private String visitCateCode;
 	private String visitAddr;
+	private String visitMapLink;
 	private String visitImgMain;
 	private String visitImgSub1;
 	private String visitImgSub2;
+	private String visitText;
 	private int likeCnt;
 	
 	public String getVisitId() {
@@ -34,6 +36,12 @@ public class Visit {
 	public void setVisitAddr(String visitAddr) {
 		this.visitAddr = visitAddr;
 	}
+	public String getVisitMapLink() {
+		return visitMapLink;
+	}
+	public void setVisitMapLink(String visitMapLink) {
+		this.visitMapLink = visitMapLink;
+	}
 	public String getVisitImgMain() {
 		return visitImgMain;
 	}
@@ -51,6 +59,12 @@ public class Visit {
 	}
 	public void setVisitImgSub2(String visitImgSub2) {
 		this.visitImgSub2 = visitImgSub2;
+	}
+	public String getVisitText() {
+		return visitText;
+	}
+	public void setVisitText(String visitText) {
+		this.visitText = visitText;
 	}
 	public int getLikeCnt() {
 		return likeCnt;

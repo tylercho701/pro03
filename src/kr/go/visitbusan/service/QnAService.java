@@ -7,6 +7,7 @@ import kr.go.visitbusan.model.QnADAO;
 import kr.go.visitbusan.model.QnADAOInterface;
 
 public class QnAService {
+	
 	QnADAOInterface dao = new QnADAO();
 	
 	public ArrayList<QnA> qnAListAll(){
