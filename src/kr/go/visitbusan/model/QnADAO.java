@@ -24,7 +24,7 @@ public class QnADAO implements QnADAOInterface {
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				QnA qna = new QnA();
-				qna.setqId(rs.getString("qna"));
+				qna.setqId(rs.getString("qId"));
 				qna.setqTitle(rs.getString("qTitle"));
 				qna.setqContent(rs.getString("qContent"));
 				qna.setqType(rs.getInt("qType"));
@@ -56,7 +56,7 @@ public class QnADAO implements QnADAOInterface {
 				rs = pstmt.executeQuery();
 				while(rs.next()){
 					QnA qna = new QnA();
-					qna.setqId(rs.getString("qna"));
+					qna.setqId(rs.getString("qId"));
 					qna.setqTitle(rs.getString("qTitle"));
 					qna.setqContent(rs.getString("qContent"));
 					qna.setqType(rs.getInt("qType"));
@@ -88,7 +88,7 @@ public class QnADAO implements QnADAOInterface {
 				pstmt.setString(1, qId);
 				rs = pstmt.executeQuery();
 				if(rs.next()){
-					qna.setqId(rs.getString("qna"));
+					qna.setqId(rs.getString("qId"));
 					qna.setqTitle(rs.getString("qTitle"));
 					qna.setqContent(rs.getString("qContent"));
 					qna.setqType(rs.getInt("qType"));
@@ -208,7 +208,7 @@ public class QnADAO implements QnADAOInterface {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()){
-				qna.setqId(rs.getString("qna"));
+				qna.setqId(rs.getString("qId"));
 				qna.setqTitle(rs.getString("qTitle"));
 				qna.setqContent(rs.getString("qContent"));
 				qna.setqType(rs.getInt("qType"));
@@ -300,7 +300,7 @@ public class QnADAO implements QnADAOInterface {
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				QnA qna = new QnA();
-				qna.setqId(rs.getString("qna"));
+				qna.setqId(rs.getString("qId"));
 				qna.setqTitle(rs.getString("qTitle"));
 				qna.setqContent(rs.getString("qContent"));
 				qna.setqType(rs.getInt("qType"));
@@ -332,7 +332,7 @@ public class QnADAO implements QnADAOInterface {
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				QnA qna = new QnA();
-				qna.setqId(rs.getString("qna"));
+				qna.setqId(rs.getString("qId"));
 				qna.setqTitle(rs.getString("qTitle"));
 				qna.setqContent(rs.getString("qContent"));
 				qna.setqType(rs.getInt("qType"));

@@ -25,6 +25,7 @@ public class QnaInsertAnswerProCtrl extends HttpServlet {
 		qna.setqTitle(request.getParameter("qTitle"));
 		qna.setqContent(request.getParameter("qContent"));
 		qna.setqIdGroup(request.getParameter("qIdGroup"));
+		qna.setAskedBy("admin");
 		
 		int cnt = qService.qnAInsertA(qna);
 		
