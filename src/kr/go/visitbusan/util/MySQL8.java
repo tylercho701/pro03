@@ -91,13 +91,14 @@ public class MySQL8 {
 	
 	//regi
 	public final static String REGI_LIST_BY_MEMBER_ID = "select * from registration where registeredBy=?";
-	public final static String REGI_VO_LIST_BY_MEMBER_ID = "select b.regId, b.visitId, b.registeredBy, a.visitTitle, a.visitAddr, b.regDate, b.tourDate, b.rStatus from visit a, registration b where b.registeredBy=? and a.visitId = b.visitId";
+	public final static String REGI_VO_LIST_BY_MEMBER_ID = "select b.regId, b.visitId, b.registeredBy, a.visitTitle, a.visitAddr, b.regDate, b.tourDate, b.rStatus from visit a, registration b where b.registeredBy=? and a.visitId = b.visitId order by b.regDate desc";
 	public final static String REGI_VO_BY_REG_ID = "select b.regId, b.visitId, b.registeredBy, a.visitTitle, a.visitAddr, b.regDate, b.tourDate, b.rStatus from visit a, registration b where b.regId=? and a.visitId = b.visitId";
 	public final static String INSERT_REGI = "INSERT INTO REGISTRATION VALUES(?, ?, ?, default, ?, default);";
 	public final static String UPDATE_REGI = "UPDATE REGISTRATION SET tourDate=? where regId=?";
 	public final static String DELETE_REGI = "DELETE FROM REGISTRATION WHERE regId=?";
 	public final static String ADMIN_REGI_LIST_ALL = "select * from registration";
-	public final static String ADMIN_UPDATE_RSTATUS = "UPDATE REGISTRATION SET rStatus=? where regId=?";
+	public final static String ADMIN_REGI_VO_LIST_ALL = "select b.regId, b.visitId, b.registeredBy, a.visitTitle, a.visitAddr, b.regDate, b.tourDate, b.rStatus from visit a, registration b where a.visitId = b.visitId order by b.regDate desc";
+	public final static String ADMIN_UPDATE_RSTATUS = "UPDATE REGISTRATION SET tourDate=?, rStatus=? where regId=?";
 	public final static String REGI_ID_GENERATOR = "SELECT REGID FROM REGISTRATION ORDER BY REGID DESC LIMIT 1";
 		
 	//poke
@@ -105,8 +106,8 @@ public class MySQL8 {
 	public final static String INSERT_POKE = "INSERT INTO POKE VALUES(?, ?, ?)";
 	public final static String DELETE_POKE = "DELETE FROM POKE WHERE pokeId=?";
 	public final static String CHECK_POKE = "SELECT * FROM POKE WHERE POKEDBY=? AND VISITID=?";
-	public final static String POKEVO_LIST_BY_MEMBER_ID = "select a.pokeId, a.pokedBy, a.visitId, b.visitTitle, b.visitAddr from poke a, visit b where a.visitId = b.visitId and pokedBy=?";
-	public final static String COUNT_POKE_BY_VISIT_ID = "SELECT COUNT(*) as count from poke where visitId=? group by visitId";	
+	public final static String POKEVO_LIST_BY_MEMBER_ID = "select a.pokeId, a.pokedBy, a.visitId, b.visitTitle, b.visitAddr from poke a, visit b where a.visitId = b.visitId and pokedBy=? order by a.pokeId desc";
+	public final static String COUNT_POKE_BY_VISIT_ID = "SELECT COUNT(*) as count from poke where visitId=? group by visitId";
 	
 	public static Connection getConnection() throws ClassNotFoundException, SQLException{
 		Class.forName(driver);

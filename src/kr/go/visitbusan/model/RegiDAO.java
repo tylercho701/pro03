@@ -129,6 +129,21 @@ public class RegiDAO {
 		return i;
 	}
 	
+	public int UpdateRstatus(Registration regi){
+		int i = 0;
+		try {
+			conn = MySQL8.getConnection();
+			pstmt = conn.prepareStatement(MySQL8.ADMIN_UPDATE_RSTATUS);
+			pstmt.setString(1, regi.getTourDate());
+			pstmt.setString(2, regi.getrStatus());
+			pstmt.setString(3, regi.getRegId());
+			i = pstmt.executeUpdate();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		return i;
+	}
+	
 	public int DeleteRegi(String regId){
 		int i = 0;
 		try {
@@ -162,6 +177,31 @@ public class RegiDAO {
 			e.printStackTrace();
 		}
 		return regiList;
+	}
+	
+	public ArrayList<RegistrationVO> AdminRegiVOListAll(){
+		ArrayList<RegistrationVO> regiVOList = new ArrayList<RegistrationVO>();
+		try {
+			conn = MySQL8.getConnection();
+			pstmt = conn.prepareStatement(MySQL8.ADMIN_REGI_VO_LIST_ALL);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				RegistrationVO regi = new RegistrationVO();
+				regi.setRegId(rs.getString("regId"));
+				regi.setVisitId(rs.getString("visitId"));
+				regi.setRegisteredBy(rs.getString("registeredBy"));
+				regi.setVisitTitle(rs.getString("visitTitle"));
+				regi.setVisitAddr(rs.getString("visitAddr"));
+				regi.setRegDate(rs.getString("regDate"));
+				regi.setTourDate(rs.getString("tourDate"));
+				regi.setrStatus(rs.getString("rStatus"));
+				regiVOList.add(regi);
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+		} finally {
+			MySQL8.close(conn, pstmt, rs);
+		}	
+		return regiVOList;
 	}
 	
 	public int AdminUpdateRstatus(String rStatus, String regId){

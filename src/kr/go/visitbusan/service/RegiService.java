@@ -34,6 +34,11 @@ public class RegiService {
 		return i;
 	}
 	
+	public int UpdateRstatus(Registration regi){
+		int i = rdao.UpdateRstatus(regi);
+		return i;		
+	}
+	
 	public int DeleteRegi(String regId){
 		int i = rdao.DeleteRegi(regId);
 		return i;
@@ -42,6 +47,11 @@ public class RegiService {
 	public ArrayList<Registration> AdminRegiListAll(){
 		ArrayList<Registration> regiList = rdao.AdminRegiListAll();
 		return regiList;
+	}
+	
+	public ArrayList<RegistrationVO> AdminRegiVOListAll(){
+		ArrayList<RegistrationVO> regiVOList = rdao.AdminRegiVOListAll();
+		return regiVOList;
 	}
 	
 	public int AdminUpdateRstatus(String rStatus, String regId){

@@ -50,7 +50,7 @@
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">유용한정보</a>
         <div class="navbar-dropdown">
-          <a href="" class="navbar-item">공지사항</a>
+          <a href="${header_path }/NoticeList.do" class="navbar-item">공지사항</a>
           <a href="" class="navbar-item">랭킹</a>
           <a href="" class="navbar-item">QnA</a>
         </div>

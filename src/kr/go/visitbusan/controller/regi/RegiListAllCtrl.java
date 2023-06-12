@@ -1,6 +1,7 @@
 package kr.go.visitbusan.controller.regi;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,18 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 import kr.go.visitbusan.service.RegiService;
 import kr.go.visitbusan.vo.RegistrationVO;
 
-@WebServlet("/RegiUpdateRstatus.do")
-public class RegiUpdateRstatusCtrl extends HttpServlet {
+
+@WebServlet("/RegiListAll.do")
+public class RegiListAllCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String regId = request.getParameter("regId");
-		
 		RegiService rService = new RegiService();
-		RegistrationVO regiVO = rService.RegiVOBYRegId(regId);
-		request.setAttribute("list", regiVO);
+		ArrayList<RegistrationVO> regiVOList = rService.AdminRegiVOListAll();
+		request.setAttribute("regiVOList", regiVOList);
 		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/admin/regiUpdateRstatus.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/admin/regiListAll.jsp");
 		view.forward(request, response);
 	}
 }
