@@ -56,6 +56,7 @@ public class MySQL8 {
 	
 	// QNA
 	public final static String QNA_LIST_ALL = "select * from qna order by qIdGroup desc, qId asc";
+	public final static String QNA_LIST_BY_SID = "select * from qna where qIdGroup = (select qIdgroup from qna where askedBy = ?) order by qIdGroup desc, qId asc";			//	신규
 	public final static String QNA_LIST_BY_QIDGROUP = "select * from qna where qIdGroup = ? order by qid asc";
 	public final static String QNA_LIST_FORANSWER_BY_QIDGROUP = "select * from qna where qIdGroup = ? and qType = 2 order by qid asc";
 	public final static String QNA_LIST_FORQUESTION_BY_QIDGROUP = "select * from qna where qIdGroup = ? and qType = 1 order by qid asc";
@@ -108,6 +109,11 @@ public class MySQL8 {
 	public final static String CHECK_POKE = "SELECT * FROM POKE WHERE POKEDBY=? AND VISITID=?";
 	public final static String POKEVO_LIST_BY_MEMBER_ID = "select a.pokeId, a.pokedBy, a.visitId, b.visitTitle, b.visitAddr from poke a, visit b where a.visitId = b.visitId and pokedBy=? order by a.pokeId desc";
 	public final static String COUNT_POKE_BY_VISIT_ID = "SELECT COUNT(*) as count from poke where visitId=? group by visitId";
+	
+	//	ranking
+	public final static String RANK_MMEBER_TOP_3 = "select registeredBy, count(registeredBy) as cnt from registration group by registeredBy order by cnt desc limit 3";
+	public final static String RANK_REVIEW_TOP_3 = "select * from review order by likeCnt desc limit 3";
+	
 	
 	public static Connection getConnection() throws ClassNotFoundException, SQLException{
 		Class.forName(driver);

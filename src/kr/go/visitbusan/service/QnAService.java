@@ -14,6 +14,10 @@ public class QnAService {
 		ArrayList<QnA> qList = dao.qnAListAll();
 		return qList;
 	}
+	public ArrayList<QnA> qnAListBySid(String askedBy){
+		ArrayList<QnA> qList = dao.qnAListBySid(askedBy);
+		return qList;
+	}
 	public ArrayList<QnA> qnAListByQIdGroup(String qIdGroup){
 		ArrayList<QnA> qList = dao.qnAListByQIdGroup(qIdGroup);
 		return qList;

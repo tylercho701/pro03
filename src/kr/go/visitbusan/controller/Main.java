@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.go.visitbusan.dto.Notice;
-import kr.go.visitbusan.service.NoticeService;
+import kr.go.visitbusan.dto.Review;
 
 public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,11 +26,9 @@ public class Main extends HttpServlet {
 		application.setAttribute("realPath", realPath);
 		
 		
-		// 공지 사항 메인 구현
-		ArrayList<Notice> notiList = new ArrayList<Notice>();
-		NoticeService nService = new NoticeService();
-		notiList = nService.noticeListAll();
-		request.setAttribute("notiList", notiList);
+		// 리뷰 랭크 구현
+		ArrayList<Review> reviewList = new ArrayList<Review>();
+		
 		
 		
 		// 메인 페이지 포워딩

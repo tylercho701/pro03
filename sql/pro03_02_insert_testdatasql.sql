@@ -107,7 +107,12 @@ select * from notice;
 select * from category;
 select * from visit;
 
-desc qna;
+select * from registration where 
+
+insert into registration values ('000016', 'tyler', '4', default, '2023-06-01', '여행완료');
+
+desc visit;
+desc registration;
 
 alter table qna modify askedAt timestamp default current_timestamp on update current_timestamp;
 alter table review modify reviewedAt timestamp default current_timestamp on update current_timestamp;

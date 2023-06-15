@@ -352,5 +352,36 @@ public class QnADAO implements QnADAOInterface {
 		MySQL8.close(conn, pstmt, rs);
 		return qnAList;
 	}
+
+	@Override
+	public ArrayList<QnA> qnAListBySid(String askedBy) {
+		ArrayList<QnA> qnAList = new ArrayList<QnA>();
+		try {
+			conn = MySQL8.getConnection();
+			pstmt = conn.prepareStatement(MySQL8.QNA_LIST_BY_SID);
+			pstmt.setString(1, askedBy);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				QnA qna = new QnA();
+				qna.setqId(rs.getString("qId"));
+				qna.setqTitle(rs.getString("qTitle"));
+				qna.setqContent(rs.getString("qContent"));
+				qna.setqType(rs.getInt("qType"));
+				qna.setqIdGroup(rs.getString("qIdGroup"));
+				qna.setAskedAt(rs.getString("askedAt"));
+				qna.setAskedBy(rs.getString("askedBy"));
+				qna.setReadCnt(rs.getInt("readCnt"));
+				qnAList.add(qna);
+			}
+		} catch (ClassNotFoundException e) { //오라클 JDBC 클래스가 없거나 경로가 다른 경우 발생
+			e.printStackTrace();
+		} catch (SQLException e){	//sql 구문이 틀린 경우 발생
+			e.printStackTrace();			
+		} catch (Exception e){	//알 수 없는 예외인 경우 발생
+			e.printStackTrace();
+		}
+		MySQL8.close(conn, pstmt, rs);
+		return qnAList;
+	}
 	
 }

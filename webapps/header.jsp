@@ -52,7 +52,7 @@
         <div class="navbar-dropdown">
           <a href="${header_path }/NoticeList.do" class="navbar-item">공지사항</a>
           <a href="" class="navbar-item">랭킹</a>
-          <a href="" class="navbar-item">QnA</a>
+          <a href="${header_path }/QnaList.do" class="navbar-item">QnA</a>
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@
 		        <a href="${header_path }/RegiListbyMemberId.do?sid=${sid }" class="navbar-item">
 				    여행목록
 		        </a>
-		        <a href="${header_path }/" class="navbar-item">
+		        <a href="${header_path }/QnaListBySid.do?sid=${sid }" class="navbar-item">
 				    내 질문 보기
 		        </a>
 		      </div>

@@ -6,6 +6,7 @@ import kr.go.visitbusan.dto.QnA;
 
 public interface QnADAOInterface {
 	public ArrayList<QnA> qnAListAll();
+	public ArrayList<QnA> qnAListBySid(String askedBy);
 	public ArrayList<QnA> qnAListByQIdGroup(String qIdGroup);
 	public QnA qnADetail(String qId);
 	public void qnaUpdateReadCnt(String qId);

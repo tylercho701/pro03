@@ -18,7 +18,7 @@
 </head>
 <body>
 <%@ include file="../../header.jsp" %>
-	<div class="container is-fullhd">
+	<div class="container">
 		<h2 class="title">로그인</h2>
 		<form action="${path }/MemberLoginPro.do" method="post" class="box">
 			<table class="table is-striped">

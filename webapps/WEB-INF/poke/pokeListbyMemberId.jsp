@@ -12,8 +12,9 @@
 <title>찜 목록</title>
 </head>
 <body>
-<jsp:include page="${page }/header.jsp" />
-<div class="container is-fullhd">
+<div class="container">
+	<jsp:include page="${page }/header.jsp" />
+	<div class="content">
 	<h2 class="title">${sid }님의 찜목록</h2>
 	<c:if test="${!empty pokeVOList }">
 	<table class="table">
@@ -47,5 +48,6 @@
 	</div>
 </div>
 <jsp:include page="${page }/footer.jsp" />
+</div>
 </body>
 </html>
