@@ -112,7 +112,7 @@ public class MySQL8 {
 	
 	//	ranking
 	public final static String RANK_MMEBER_TOP_3 = "select registeredBy, count(registeredBy) as cnt from registration group by registeredBy order by cnt desc limit 3";
-	public final static String RANK_REVIEW_TOP_3 = "select * from review order by likeCnt desc limit 3";
+	public final static String RANK_REVIEW_TOP_3 = "select reviewedBy, likeCnt from review order by likeCnt desc limit 3";
 	
 	
 	public static Connection getConnection() throws ClassNotFoundException, SQLException{

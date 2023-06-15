@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.go.visitbusan.dto.Review;
+import kr.go.visitbusan.service.ReviewService;
 
 public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -18,8 +19,10 @@ public class Main extends HttpServlet {
     public Main() { super(); }
 
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String msg = "VisitBusan";
-		
+    	
+    	request.setCharacterEncoding("UTF-8");
+    	response.setContentType("text/html; charset=UTF-8");
+    	
 		// 홈 디렉토리
 		ServletContext application = request.getServletContext();
 		String realPath = request.getSession().getServletContext().getRealPath("/");
@@ -27,12 +30,14 @@ public class Main extends HttpServlet {
 		
 		
 		// 리뷰 랭크 구현
+		ReviewService rService = new ReviewService();
 		ArrayList<Review> reviewList = new ArrayList<Review>();
 		
-		
+		reviewList = rService.reviewRank();		
 		
 		// 메인 페이지 포워딩
-		request.setAttribute("msg", msg);
+		request.setAttribute("reviewList", reviewList);
+		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/Index.jsp");
 		view.forward(request, response);
 	}

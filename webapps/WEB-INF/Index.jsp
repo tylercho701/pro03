@@ -20,39 +20,38 @@
 </style>
 </head>
 <body>
-
-<%@ include file="../header.jsp" %>
+	<%@ include file="../header.jsp" %>
 	<div class="container">
 		<div class="content">
 			<h2 class="title">VISIT BUSAN</h2>
-				<div class="tb_review">
-					<table class="table">
-						<thead>
+			<div class="tb_review">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Rank</th>
+							<th>Name</th>
+							<th>cnt</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!--<c:forEach var="rList" items="reviewList" varStatus="status">
 							<tr>
-								<th>Rank</th>
-								<th>Name</th>
-								<th>cnt</th>
+								<td>${status.count }</td>
+								<td>${rList.reviewedBy }</td>
+								<td>${rList.likeCnt }</td>
 							</tr>
-						</thead>
-						<tbody>
-							<c:if test="${empty reviewList}">
-								<tr>
-									<td colspan="3">여행 후기 랭크가 준비되지 않았습니다.</td>
-								</tr>
-							</c:if>
-							<c:forEach var="rList" items="" varStatus="status">
-								<tr>
-									<td>${status.count }</td>
-									<td>${rList.reviewedBy }</td>
-									<td>${rList.likeCnt }</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
+						</c:forEach>
+						<c:if test="${empty reviewList}">
+							<tr>
+								<td colspan="3">여행 후기 랭크가 준비되지 않았습니다.</td>
+							</tr>
+						</c:if> -->
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
-<%@ include file="../footer.jsp" %>
+	<%@ include file="../footer.jsp" %>
 	<script>
 		$(document).ready(function(){
 			$.ajax({

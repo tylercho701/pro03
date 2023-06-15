@@ -229,5 +229,29 @@ public class ReviewDAO implements ReviewDAOInterface{
 		MySQL8.close(conn, pstmt, rs);
 		return rev;
 	}
+
+	//	review data 중 likeCnt 내림차순 3개
+	@Override
+	public ArrayList<Review> reviewRank() {
+		ArrayList<Review> reviewList = new ArrayList<Review>();
+		try {
+		conn = MySQL8.getConnection();
+		pstmt = conn.prepareStatement(MySQL8.RANK_REVIEW_TOP_3);
+		rs = pstmt.executeQuery();
+		while(rs.next()){
+			Review rev = new Review();
+			rev.setReviewedBy(rs.getString("reviewedBy"));
+			rev.setLikeCnt(rs.getInt("likeCnt"));
+			reviewList.add(rev);
+		}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e){
+			e.printStackTrace();			
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+		return reviewList;
+	}
 	
 }

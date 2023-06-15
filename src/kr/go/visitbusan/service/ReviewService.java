@@ -41,4 +41,8 @@ public class ReviewService {
 		Review rev = dao.reviewDetail(reviewId);
 		return rev;
 	}
+	public ArrayList<Review> reviewRank(){
+		ArrayList<Review> reviewList = dao.reviewRank();
+		return reviewList;
+	}
 }

@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="header_path" value="${pageContext.request.contextPath }" />
-<%@ include file="../common.jsp" %>
 <%
 	String sid="";
 	if(session.getAttribute("sid")!=null){
