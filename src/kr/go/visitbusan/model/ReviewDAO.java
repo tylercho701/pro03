@@ -253,5 +253,37 @@ public class ReviewDAO implements ReviewDAOInterface{
 		}
 		return reviewList;
 	}
-	
+
+	@Override
+	public ArrayList<Review> reviewListByVisit(String visitId) {
+		ArrayList<Review> reviewList = new ArrayList<Review>();
+		try {
+			conn = MySQL8.getConnection();
+			pstmt = conn.prepareStatement(MySQL8.REVIEW_LIST_BY_VISITID);
+			pstmt.setString(1, visitId);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				Review rev = new Review();
+				rev.setReviewId(rs.getString("reviewId"));
+				rev.setReviewTitle(rs.getString("reviewTitle"));
+				rev.setReviewContent(rs.getString("reviewContent"));
+				rev.setReviewedAt(rs.getString("reviewedAt"));
+				rev.setReviewedBy(rs.getString("reviewedBy"));
+				rev.setVisitId(rs.getString("VisitId"));
+				rev.setRegId(rs.getString("RegId"));
+				rev.setPoint(rs.getInt("point"));
+				rev.setImg(rs.getString("img"));
+				rev.setLikeCnt(rs.getInt("likeCnt"));
+				reviewList.add(rev);
+			}
+		} catch (ClassNotFoundException e) { //오라클 JDBC 클래스가 없거나 경로가 다른 경우 발생
+			e.printStackTrace();
+		} catch (SQLException e){	//sql 구문이 틀린 경우 발생
+			e.printStackTrace();			
+		} catch (Exception e){	//알 수 없는 예외인 경우 발생
+			e.printStackTrace();
+		}
+		MySQL8.close(conn, pstmt, rs);
+		return reviewList;
+	}	
 }

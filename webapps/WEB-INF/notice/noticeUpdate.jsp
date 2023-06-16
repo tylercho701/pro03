@@ -12,6 +12,7 @@
 <html>
 <head>
 <%@ include file="../../common.jsp" %>
+<link rel="stylesheet" href="../../form_common.css">
 <link rel="stylesheet" href="/source/bulma.css">
 <meta charset="UTF-8">
 <title>Notice Update</title>

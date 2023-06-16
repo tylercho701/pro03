@@ -100,4 +100,6 @@ create table registration
              
 select noticeId from (select noticeId from notice order by noticeId desc) where rownum = 1;
 
+select * from category;
+
 commit;

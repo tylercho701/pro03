@@ -12,7 +12,11 @@ public class ReviewService {
 	public ArrayList<Review> reviewListAll(){
 		ArrayList<Review> revList = dao.reviewListAll();
 		return revList;
-	};
+	}
+	public ArrayList<Review> reviewListByVisit(String visitId){
+		ArrayList<Review> reviewList = dao.reviewListByVisit(visitId);
+		return reviewList;
+	}
 	public int reviewUpdateLikeCnt(String reviewId){
 		int cnt = dao.reviewUpdateLikeCnt(reviewId);
 		return cnt;

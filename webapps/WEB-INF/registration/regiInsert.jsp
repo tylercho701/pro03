@@ -8,46 +8,50 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<jsp:include page="${page }/common.jsp" />
+<%@ include file="../../common.jsp" %>
+<link rel="stylesheet" href="../../form_common.css">
+<link rel="stylesheet" href="/source/bulma.css">
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="${page }/header.jsp" />
-<div class="container is-fullhd">
-	<h2 class="title">regInsert</h2>
-	<form action="${path }/RegiInsertPro.do" method="post">
-		<table class="table" style="width: 90%">
-			<tbody>
-				<tr>
-					<th>visitTitle</th>
-					<td>
-						${visit.visitTitle }
-						<input type="hidden" id="registeredBy" name="registeredBy" value="${sid }">
-						<input type="hidden" id="pokeId" name="pokeId" value="${pokeId }">
-						<input type="hidden" id="visitId" name="visitId" value="${visit.visitId }">
-					</td>
-				<tr>
-					<th>tourDate</th>
-					<td><input type="date" id="tourDate" name="tourDate"></td>
-				</tr>
-			</tbody>
-		</table>
-		<div>
-			<input type="submit" value="visit 신청하기" class="button is-info">
-			<a href="javascript:history.go(-1)" class="button is-danger">뒤로가기</a>
+	<div class="container">
+		<jsp:include page="${page }/header.jsp" />
+		<div class="content">
+			<h2 class="title">regInsert</h2>
+			<form action="${path }/RegiInsertPro.do" method="post">
+				<table class="table" style="width: 90%">
+					<tbody>
+						<tr>
+							<th>visitTitle</th>
+							<td>
+								${visit.visitTitle }
+								<input type="hidden" id="registeredBy" name="registeredBy" value="${sid }">
+								<input type="hidden" id="pokeId" name="pokeId" value="${pokeId }">
+								<input type="hidden" id="visitId" name="visitId" value="${visit.visitId }">
+							</td>
+						<tr>
+							<th>tourDate</th>
+							<td><input type="date" id="tourDate" name="tourDate"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div>
+					<input type="submit" value="visit 신청하기" class="button is-info">
+					<a href="javascript:history.go(-1)" class="button is-danger">뒤로가기</a>
+				</div>
+			</form>
 		</div>
-	</form>
-</div>
-<jsp:include page="${page }/footer.jsp" />
-<script>
-	$(document).ready(function(){
-		var date = new Date();
-		var year = date.getFullYear();
-		var month = ('0' + (date.getMonth() + 1)).slice(-2);
-		var day = ('0' + date.getDate()).slice(-2);
-		var today = year + '-' + month  + '-' + day;
-		$("#tourDate").attr('min', today);
-	});
-</script>
+		<jsp:include page="${page }/footer.jsp" />
+	</div>
+		<script>
+			$(document).ready(function(){
+				var date = new Date();
+				var year = date.getFullYear();
+				var month = ('0' + (date.getMonth() + 1)).slice(-2);
+				var day = ('0' + date.getDate()).slice(-2);
+				var today = year + '-' + month  + '-' + day;
+				$("#tourDate").attr('min', today);
+			});
+		</script>
 </body>
 </html>

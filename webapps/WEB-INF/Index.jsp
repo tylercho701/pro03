@@ -11,20 +11,25 @@
 <head>
 <%@ include file="../common.jsp" %>
 <link rel="stylesheet" href="/source/bulma.css">
+<link rel="stylesheet" href="../form_common.css">
 <meta charset="UTF-8">
 <title>VISIT BUSAN</title>
 <style>
 .row:after { content:""; display:block; clear:both; }
 .row li { float:left; }
 .content ul.row { width:960px; margin:10px auto; margin-left:auto; margin-right:auto; }
+.tb_review { float:left; width:620px; margin:10px 30px; border: 1px solid #333 ; text-align:center; }
+.tb_review > h3 { margin:15px auto; }
+.tb_review:last-child { margin:10px auto; }
 </style>
 </head>
 <body>
-	<%@ include file="../header.jsp" %>
 	<div class="container">
+		<%@ include file="../header.jsp" %>
 		<div class="content">
 			<h2 class="title">VISIT BUSAN</h2>
 			<div class="tb_review">
+				<h3>Review_Ranking_Top_3</h3>
 				<table class="table">
 					<thead>
 						<tr>
@@ -34,7 +39,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<!--<c:forEach var="rList" items="reviewList" varStatus="status">
+						<c:forEach var="rList" items="${reviewList }" varStatus="status">
 							<tr>
 								<td>${status.count }</td>
 								<td>${rList.reviewedBy }</td>
@@ -45,13 +50,43 @@
 							<tr>
 								<td colspan="3">여행 후기 랭크가 준비되지 않았습니다.</td>
 							</tr>
-						</c:if> -->
+						</c:if>
+					</tbody>
+				</table>
+			</div>
+			<div class="tb_review">
+				<h3>Review_Ranking_Top_3</h3>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Rank</th>
+							<th>Name</th>
+							<th>cnt</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="rList" items="${reviewList }" varStatus="status">
+							<tr>
+								<td>${status.count }</td>
+								<td>${rList.reviewedBy }</td>
+								<td>${rList.likeCnt }</td>
+							</tr>
+						</c:forEach>
+						<c:if test="${empty reviewList}">
+							<tr>
+								<td colspan="3">여행 후기 랭크가 준비되지 않았습니다.</td>
+							</tr>
+						</c:if>
 					</tbody>
 				</table>
 			</div>
 		</div>
+		<div class="divider" style="clear:both; content=""; ">
+			<span>
+			</span>
+		</div>
+		<%@ include file="../footer.jsp" %>
 	</div>
-	<%@ include file="../footer.jsp" %>
 	<script>
 		$(document).ready(function(){
 			$.ajax({

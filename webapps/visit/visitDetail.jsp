@@ -9,60 +9,86 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <jsp:include page="../common.jsp" />
+<link rel="stylesheet" href="${path }/source/bulma.css">
 <title>detail</title>
 <style>
 #container { text-align: center;}
 </style>
 </head>
 <body>
-<jsp:include page="../header.jsp" />
-<div class="container is-fullhd">
-	<!--  -->
-	<section class="section" style="text-align:center;">
-	  <h1 class="title" style="margin-bottom: 40px; ">${visit.visitTitle }</h1>
-	  <img src="${path }/visit/${visit.visitImgMain }" alt="main">
-	</section>
-<!-- 	
-	<section class="section is-medium" style="text-align:center;">
-	  
-	</section> -->
-	
-	<div>
-		<button type="button" id="like" class="button" onClick="" value="">좋아요(${visit.likeCnt })</button>
-		<button type="button" id="poke" class="button is-info" onClick="pokeCtrl()" value=""></button>
-	</div>
-	
-	<!--  -->
-	<div class="tabs is-centered">
-	  <ul>
-	    <li id="detail" class="is-active"><a onClick="switchDetail()">상세정보</a></li>
-	    <li id="map"><a onClick="switchMap()">지도</a></li>
-	    <li id="review"><a onClick="switchReview()">리뷰</a></li>
-	  </ul>
-	</div>
-	<div id="container">
-		<!-- 상세 -->
-		<div id="detail-content">
-			<c:if test="${!empty visit.visitImgSub1 }">
-				<img src="${path }/visit/${visit.visitImgSub1 }" alt="sub1">
-			</c:if>
-			<br>
-			<c:if test="${!empty visit.visitText }">
-				<span>${visit.visitText }</span>
-			</c:if>
+	<div class="container">
+		<jsp:include page="../header.jsp" />
+		<div class="content">
+			<!--  -->
+			<section class="section" style="text-align:center;">
+			  <h1 class="title" style="margin-bottom: 40px; ">${visit.visitTitle }</h1>
+			  <img src="${path }/visit/${visit.visitImgMain }" alt="main">
+			</section>
+		<!-- 	
+			<section class="section is-medium" style="text-align:center;">
+			  
+			</section> -->
+			
+			<div>
+				<button type="button" id="like" class="button" onClick="" value="">좋아요(${visit.likeCnt })</button>
+				<button type="button" id="poke" class="button is-info" onClick="pokeCtrl()" value=""></button>
+			</div>
+			
+			<!--  -->
+			<div class="tabs is-centered">
+			  <ul>
+			    <li id="detail" class="is-active"><a onClick="switchDetail()">상세정보</a></li>
+			    <li id="map"><a onClick="switchMap()">지도</a></li>
+			    <li id="review"><a onClick="switchReview()">리뷰</a></li>
+			  </ul>
+			</div>
+			<div id="container">
+				<!-- 상세 -->
+				<div id="detail-content">
+					<c:if test="${!empty visit.visitImgSub1 }">
+						<img src="${path }/visit/${visit.visitImgSub1 }" alt="sub1">
+					</c:if>
+					<br>
+					<c:if test="${!empty visit.visitText }">
+						<span>${visit.visitText }</span>
+					</c:if>
+				</div>
+				<!-- 지도 -->
+				<div id="map-content" class="is-hidden">
+					<iframe src="${visit.visitMapLink }" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+				</div>
+				
+				<!-- 리뷰 -->
+				<div id="review-content" class="is-hidden">
+					<table class="table" id="tb1">
+						<thead>
+							<tr><th>리뷰번로</th><th>리뷰제목</th><th>작성자아이디</th><th>작성일</th><th>평점</th></tr>
+						</thead>
+						<tbody>
+							<c:forEach var="rev" items="${reviewList }">
+							<tr>
+								<td>${rev.reviewId }</td>
+								<td><a href="${path }/ReviewDetail.do?reviewId=${rev.reviewId }">${rev.reviewTitle }</a></td>
+								<td>${rev.reviewedBy }</td>
+								<td>
+									<fmt:parseDate var="resdate" value="${rev.reviewedAt }" pattern="yyyy-MM-dd HH:mm:ss" />
+									<fmt:formatDate value="${resdate }" pattern="yyyy년 MM월 dd일" /> 
+								</td>
+								<td>${rev.point }</td>
+							</tr>
+							</c:forEach>
+							<c:if test="${empty reviewList }">
+								<tr>
+									<td colspan="5">여행 후기가 존재하지 않습니다.</td>
+								</tr>
+							</c:if>	
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
-		<!-- 지도 -->
-		<div id="map-content" class="is-hidden">
-			<iframe src="${visit.visitMapLink }" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-		</div>
-		
-		<!-- 리뷰 -->
-		<div id="review-content" class="is-hidden">
-		
-		</div>
+		<jsp:include page="../footer.jsp" />
 	</div>
-</div>
-<jsp:include page="../footer.jsp" />
 <script>
 	function switchDetail(){
 		preSwitch();

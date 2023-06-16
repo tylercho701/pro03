@@ -1,6 +1,7 @@
 package kr.go.visitbusan.controller.visit;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.go.visitbusan.dto.Review;
 import kr.go.visitbusan.dto.Visit;
+import kr.go.visitbusan.service.ReviewService;
 import kr.go.visitbusan.service.VisitService;
 
 @WebServlet("/VisitDetail.do")
@@ -22,6 +25,12 @@ public class VisitDetailCtrl extends HttpServlet {
 		VisitService vService = new VisitService();
 		Visit visit = vService.visitByVisitId(visitId);
 		request.setAttribute("visit", visit);
+		
+		ReviewService rService = new ReviewService();
+		ArrayList<Review> reviewList = new ArrayList<Review>();
+		
+		reviewList = rService.reviewListByVisit(visit.getVisitId());
+		request.setAttribute("reviewList", reviewList);
 		
 /*		PokeService pService = new PokeService();
 		int i = pService.CountPokeListByVisitId(visitId);

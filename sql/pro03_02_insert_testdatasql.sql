@@ -107,8 +107,7 @@ select * from notice;
 select * from category;
 select * from visit;
 
-select registeredBy, count(registeredBy) as cnt from registration group by registeredBy order by cnt desc limit 3;
-select * from review order by likeCnt desc limit 3;
+update review set likeCnt = 87 where reviewId = '000009';
 
 insert into registration values ('000020', 'faker', '4', default, '2023-06-01', '여행완료');
 insert into registration values ('000021', 'faker', '5', default, '2023-06-01', '여행완료');

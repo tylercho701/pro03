@@ -6,21 +6,21 @@
 	request.setCharacterEncoding("UTF-8");
 	response.setContentType("text/html; charset=UTF-8");
 %>
-<footer class="footer" id="ft1">
-	<div class="container is-fullhd">
+<footer class="footer">
+	<div id="ft1">
 		<div class="content has-text-centered">
 			<p class="title is-4">VISIT BUSAN SOCIAL MEDIA</p>
 			<a href="https://youtube.com/BTOrganization">
-				<img src="${footer_path }/img/index/sns5.png" alt="youtube">
+				<img src="${footer_path }/img/index/sns5.png" alt="youtube" style="background-color:#333;">
 			</a>&nbsp;&nbsp;
 			<a href="https://www.facebook.com/visitbusan.kr">
-				<img src="${footer_path }/img/index/sns2.png" alt="facebook">
+				<img src="${footer_path }/img/index/sns2.png" alt="facebook" style="background-color:#333;">
 			</a>&nbsp;&nbsp;
 			<a href="https://www.instagram.com/visitbusan.kr">
-				<img src="${footer_path }/img/index/sns3.png" alt="instagram">
+				<img src="${footer_path }/img/index/sns3.png" alt="instagram" style="background-color:#333;">
 			</a>&nbsp;&nbsp;
 			<a href="https://blog.naver.com/busanto1115">
-				<img src="${footer_path }/img/index/sns5.png" alt="naverBlog">
+				<img src="${footer_path }/img/index/sns4.png" alt="naverBlog" style="background-color:#333;">
 			</a>&nbsp;&nbsp;
 		</div>
 		<div class="tile is-ancestor">
@@ -60,9 +60,7 @@
 			</div>
 		</div>
 	</div>
-</footer>
-<footer class="footer" id="ft2">
-	<div class="container is-fullhd">
+	<div id="ft2">
 		<div class="tile is-ancestor">
 			<div class="tile is-parent">
 				<article id="ftBox1" class="tile is-child box">

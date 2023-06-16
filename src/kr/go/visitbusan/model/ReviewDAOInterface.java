@@ -6,6 +6,7 @@ import kr.go.visitbusan.dto.Review;
 
 public interface ReviewDAOInterface {
 	public ArrayList<Review> reviewListAll();
+	public ArrayList<Review> reviewListByVisit(String visitId);
 	public int reviewUpdateLikeCnt(String reviewId);
 	public int reviewInsert(Review rev);
 	public String reviewIdGenerator();

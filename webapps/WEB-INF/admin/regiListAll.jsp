@@ -9,41 +9,45 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="../../common.jsp" %>
+<link rel="stylesheet" href="../../form_common.css">
+<link rel="stylesheet" href="${path }/source/bulma.css">
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="../../header.jsp" %>
-<div class="container is-fullhd">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>연번</th>
-				<th>registeredBy</th>
-				<th>visitTitle</th>
-				<th>visitAddr</th>
-				<th>regDate</th>
-				<th colspan="2">rStatus</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="" items="" varStatus="status">
-			<tr>
-				<td>${status.count }</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>
-					<a href="" class="button is-info">상태 변경</a>
-				</td>
-			</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-</div>
-<div>
-	<a href="javascript:history.go(-1)" class="button is-danger">뒤로가기</a>
-</div>
-<%@ include file="../../footer.jsp" %>
+	<div class="container">
+		<%@ include file="../../header.jsp" %>
+		<div class="content">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>연번</th>
+						<th>registeredBy</th>
+						<th>visitTitle</th>
+						<th>visitAddr</th>
+						<th>regDate</th>
+						<th colspan="2">rStatus</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="" items="" varStatus="status">
+					<tr>
+						<td>${status.count }</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<a href="" class="button is-info">상태 변경</a>
+						</td>
+					</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+		<div>
+			<a href="javascript:history.go(-1)" class="button is-danger">뒤로가기</a>
+		</div>
+		<%@ include file="../../footer.jsp" %>
+	</div>
 </body>
 </html>

@@ -11,6 +11,7 @@
 <html>
 <head>
 <%@ include file="../../common.jsp" %>
+<link rel="stylesheet" href="../../form_common.css">
 <link rel="stylesheet" href="/source/bulma.css">
 <link rel="stylesheet" href="/source/bulma-rtl.css">
 <meta charset="UTF-8">
@@ -19,8 +20,8 @@
 </style>
 </head>
 <body>
-<%@ include file="../../header.jsp" %>
 	<div class="container">
+		<%@ include file="../../header.jsp" %>
 		<div class="content">
 			<h2 class="title">QNA 목록</h2>
 			<table class="table">
@@ -62,7 +63,7 @@
 			</div>
 			</c:if>
 		</div>
+		<%@ include file="../../footer.jsp" %>
 	</div>
-<%@ include file="../../footer.jsp" %>
 </body>
 </html>

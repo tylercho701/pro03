@@ -4,8 +4,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 
-<c:set var="path_common" value="${pageContext.request.contextPath }" />
-
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,7 +36,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
 <!-- BULMA -->
-<link rel="stylesheet" href="${path_common }/source/bulma.css">
+<link rel="stylesheet" href="${path }/source/bulma.css">
 
 <!-- Paging -->
 <link rel="stylesheet" href="${path }/resource/datatables.min.css">
